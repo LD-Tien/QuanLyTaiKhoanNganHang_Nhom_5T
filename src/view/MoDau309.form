@@ -55,15 +55,15 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                  <Component id="logoLabel" min="-2" pref="250" max="-2" attributes="0"/>
+                  <Component id="logoLabel309" min="-2" pref="250" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="logInButton" alignment="1" min="-2" pref="125" max="-2" attributes="0"/>
-                      <Component id="signInButton" alignment="1" min="-2" pref="125" max="-2" attributes="0"/>
+                      <Component id="logInButton309" alignment="1" min="-2" pref="125" max="-2" attributes="0"/>
+                      <Component id="signInButton309" alignment="1" min="-2" pref="125" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
               </Group>
-              <Component id="slideLabel" pref="770" max="32767" attributes="0"/>
+              <Component id="slideLabel309" pref="770" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -72,33 +72,33 @@
                   <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="logInButton" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="logInButton309" min="-2" pref="40" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="signInButton" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="signInButton309" min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="logoLabel" min="-2" pref="87" max="-2" attributes="0"/>
+                      <Component id="logoLabel309" min="-2" pref="87" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="32767" attributes="0"/>
-                  <Component id="slideLabel" min="-2" pref="400" max="-2" attributes="0"/>
+                  <Component id="slideLabel309" min="-2" pref="400" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="slideLabel">
+        <Component class="javax.swing.JLabel" name="slideLabel309">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
           </Properties>
           <Events>
-            <EventHandler event="ancestorResized" listener="java.awt.event.HierarchyBoundsListener" parameters="java.awt.event.HierarchyEvent" handler="slideLabelAncestorResized"/>
+            <EventHandler event="ancestorResized" listener="java.awt.event.HierarchyBoundsListener" parameters="java.awt.event.HierarchyEvent" handler="slideLabel309AncestorResized"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Banner_jLabel1"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JLabel" name="logoLabel">
+        <Component class="javax.swing.JLabel" name="logoLabel309">
         </Component>
-        <Component class="javax.swing.JButton" name="logInButton">
+        <Component class="javax.swing.JButton" name="logInButton309">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="99" green="66" red="0" type="rgb"/>
@@ -112,7 +112,7 @@
             <Property name="text" type="java.lang.String" value="&#x110;&#x103;ng nh&#x1ead;p"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="signInButton">
+        <Component class="javax.swing.JButton" name="signInButton309">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="12" style="1"/>
