@@ -1,18 +1,11 @@
 package dao;
 
-
-
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.DriverManager;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * HoTen: LeDucTien
- * MSV: 2050531200309
- * LHP: 221LTJNC01
- */
 
 public class SQLServerConnection {
     public static Connection getSQLServerConnection(){
