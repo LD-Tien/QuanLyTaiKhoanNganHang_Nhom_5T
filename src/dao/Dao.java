@@ -1,6 +1,5 @@
 package dao;
 
-
 import java.util.*;
 import java.sql.*;
 import model.Account;
@@ -16,42 +15,38 @@ import model.Account;
  */
 public class Dao {
 
-    private Connection connection;
-    private Statement st;
-    private ResultSet rs;
-
-    public Dao() throws SQLException {
-        connection = SQLServerConnection.getSQLServerConnection();
-        st = connection.createStatement();
-        rs = null;
-    }
-
-    public Account getAccountByMaThe(String maThe) throws SQLException {
+    public Account getAccountByMaThe309(String maThe) throws SQLException {
+        Connection connection309 = SQLServerConnection.getSQLServerConnection();
+        Statement st309 = connection309.createStatement();
+        ResultSet rs309 = null;
         String sql = "Select * From Account Where MaThe = " + maThe;
-        rs = st.executeQuery(sql);
-        if (rs.next()) {
-            Account acc = new Account();
-            acc.setMaThe(rs.getString("MaThe"));
-            acc.setHoTen(rs.getString("HoTen"));
-            acc.setSdt(rs.getString("SDT"));
-            acc.setNgaySinh(rs.getString("NgaySinh"));
-            acc.setDiaChi(rs.getString("DiaChi"));
-            acc.setEmail(rs.getString("Email"));
-            acc.setGioiTinh(rs.getString("GioiTinh"));
-            acc.setTenDangNhap(rs.getString("TenDangNhap"));
-            acc.setAnh(rs.getBytes("Anh"));
-            acc.setCmnd(rs.getString("CMND"));
-            acc.setMaKhau(rs.getString("MatKhau"));
-            return acc;
+        rs309 = st309.executeQuery(sql);
+
+        if (rs309.next()) {
+            Account acc309 = new Account();
+            acc309.setMaThe(rs309.getString("MaThe"));
+            acc309.setHoTen(rs309.getString("HoTen"));
+            acc309.setSdt(rs309.getString("SDT"));
+            acc309.setNgaySinh(rs309.getString("NgaySinh"));
+            acc309.setDiaChi(rs309.getString("DiaChi"));
+            acc309.setEmail(rs309.getString("Email"));
+            acc309.setGioiTinh(rs309.getString("GioiTinh"));
+            acc309.setTenDangNhap(rs309.getString("TenDangNhap"));
+            acc309.setAnh(rs309.getBytes("Anh"));
+            acc309.setCmnd(rs309.getString("CMND"));
+            acc309.setMaKhau(rs309.getString("MatKhau"));
+            return acc309;
         }
         return null;
     }
 
-    public void UpdateAccount(Account acc) throws SQLException {
+    public void UpdateAccount309(Account acc) throws SQLException {
+        Connection connection309 = SQLServerConnection.getSQLServerConnection();
+        Statement st309 = connection309.createStatement();
         String sql = "Update Account Set Anh = ? Where MaThe = ?";
-        PreparedStatement ps = connection.prepareStatement(sql);
-        ps.setBytes(1, acc.getAnh());
-        ps.setString(2, acc.getMaThe());
-        ps.executeUpdate();
+        PreparedStatement ps309 = connection309.prepareStatement(sql);
+        ps309.setBytes(1, acc.getAnh());
+        ps309.setString(2, acc.getMaThe());
+        ps309.executeUpdate();
     }
 }
