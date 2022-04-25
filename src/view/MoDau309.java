@@ -1,8 +1,14 @@
 package view;
 
-
+import edu.poly.atmjavanc.view.DangKiTK336;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.geom.RoundRectangle2D;
 import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+import org.w3c.dom.css.RGBColor;
 
 public class MoDau309 extends javax.swing.JFrame {
 
@@ -13,7 +19,7 @@ public class MoDau309 extends javax.swing.JFrame {
     Runnable r309 = () -> {
         for (int i = 1; i <= 4; i++) {
             try {
-                setSlideImage309("src\\Icons\\Slide" + i + ".jpg");
+                showPanel(new Slide309(i));
                 th309.sleep(3000);
             } catch (InterruptedException e) {
             }
@@ -25,16 +31,17 @@ public class MoDau309 extends javax.swing.JFrame {
 
     public MoDau309() {
         initComponents();
-        ImageIcon icon = new ImageIcon(new ImageIcon("src\\Icons\\LogoVietinBank.png").getImage().getScaledInstance(logoLabel309.getWidth(), logoLabel309.getHeight(), Image.SCALE_SMOOTH));
+        ImageIcon image = new ImageIcon("src\\Icons\\LogoVietinBank.png");
+        ImageIcon icon = new ImageIcon(image.getImage().getScaledInstance(logoLabel309.getWidth(), logoLabel309.getHeight(), Image.SCALE_SMOOTH));
         logoLabel309.setIcon(icon);
-        this.pack();
         th309 = new Thread(r309);
         th309.start();
     }
 
-    private void setSlideImage309(String path) {
-        ImageIcon icon309 = new ImageIcon(new ImageIcon(path).getImage().getScaledInstance(slideLabel309.getWidth(), slideLabel309.getHeight(), Image.SCALE_SMOOTH));
-        slideLabel309.setIcon(icon309);
+    private void showPanel(JPanel p) {
+        slidePanel309.removeAll();
+        slidePanel309.add(p);
+        slidePanel309.validate();
     }
 
     /**
@@ -46,100 +53,202 @@ public class MoDau309 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        slideLabel309 = new javax.swing.JLabel();
+        mainPanel309 = new javax.swing.JPanel();
+        slidePanel309 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel(){
+
+            ImageIcon icon = new ImageIcon("src\\Icons\\headerBackground.jpg");
+            public void paintComponent(Graphics g){
+                Dimension d = getSize();
+                g.drawImage(icon.getImage(), 0, 0, d.width, d.height, null);
+                setOpaque(false);
+                //        super.paintComponent(g);
+            }
+        };
+        signInPanel309 = new javax.swing.JPanel();
+        signInLabel309 = new javax.swing.JLabel();
         logoLabel309 = new javax.swing.JLabel();
-        logInButton309 = new javax.swing.JButton();
-        signInButton309 = new javax.swing.JButton();
+        signUpPanel309 = new javax.swing.JPanel();
+        signUpLabel309 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Mở đầu");
         setBackground(new java.awt.Color(255, 255, 255));
-        addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentResized(java.awt.event.ComponentEvent evt) {
-                formComponentResized(evt);
+
+        mainPanel309.setBackground(new java.awt.Color(255, 255, 255));
+
+        slidePanel309.setBackground(new java.awt.Color(255, 255, 255));
+        slidePanel309.setLayout(new java.awt.BorderLayout());
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        signInPanel309.setBackground(new java.awt.Color(0, 100, 150));
+        signInPanel309.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 80, 130), 3));
+        signInPanel309.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                signInButtonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                signInButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                signInButtonMouseExited(evt);
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(153, 204, 255));
-        jPanel2.addHierarchyBoundsListener(new java.awt.event.HierarchyBoundsListener() {
-            public void ancestorMoved(java.awt.event.HierarchyEvent evt) {
+        signInLabel309.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        signInLabel309.setForeground(new java.awt.Color(255, 255, 255));
+        signInLabel309.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        signInLabel309.setText("Đăng nhập");
+        signInLabel309.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                signInButtonMouseClicked(evt);
             }
-            public void ancestorResized(java.awt.event.HierarchyEvent evt) {
-                jPanel2AncestorResized(evt);
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                signInButtonMouseEntered(evt);
             }
-        });
-
-        slideLabel309.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        slideLabel309.addHierarchyBoundsListener(new java.awt.event.HierarchyBoundsListener() {
-            public void ancestorMoved(java.awt.event.HierarchyEvent evt) {
-            }
-            public void ancestorResized(java.awt.event.HierarchyEvent evt) {
-                slideLabel309AncestorResized(evt);
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                signInButtonMouseExited(evt);
             }
         });
 
-        logInButton309.setBackground(new java.awt.Color(0, 102, 153));
-        logInButton309.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        logInButton309.setForeground(new java.awt.Color(255, 255, 255));
-        logInButton309.setText("Đăng nhập");
-
-        signInButton309.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        signInButton309.setText("Đăng ký");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(logoLabel309, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(logInButton309, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(signInButton309, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(60, 60, 60))
-            .addComponent(slideLabel309, javax.swing.GroupLayout.DEFAULT_SIZE, 770, Short.MAX_VALUE)
+        javax.swing.GroupLayout signInPanel309Layout = new javax.swing.GroupLayout(signInPanel309);
+        signInPanel309.setLayout(signInPanel309Layout);
+        signInPanel309Layout.setHorizontalGroup(
+            signInPanel309Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(signInLabel309, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(logInButton309, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(signInButton309, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(logoLabel309, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addComponent(slideLabel309, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+        signInPanel309Layout.setVerticalGroup(
+            signInPanel309Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(signInLabel309, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        signUpPanel309.setBackground(new java.awt.Color(255, 255, 255));
+        signUpPanel309.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204), 3));
+        signUpPanel309.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                signUpButtonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                signUpButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                signUpButtonMouseExited(evt);
+            }
+        });
+
+        signUpLabel309.setBackground(new java.awt.Color(255, 255, 255));
+        signUpLabel309.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        signUpLabel309.setForeground(new java.awt.Color(0, 102, 153));
+        signUpLabel309.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        signUpLabel309.setText("Đăng ký");
+        signUpLabel309.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                signUpButtonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                signUpButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                signUpButtonMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout signUpPanel309Layout = new javax.swing.GroupLayout(signUpPanel309);
+        signUpPanel309.setLayout(signUpPanel309Layout);
+        signUpPanel309Layout.setHorizontalGroup(
+            signUpPanel309Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(signUpLabel309, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+        );
+        signUpPanel309Layout.setVerticalGroup(
+            signUpPanel309Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(signUpLabel309, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(logoLabel309, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(signInPanel309, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(signUpPanel309, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(logoLabel309, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(signInPanel309, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(signUpPanel309, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout mainPanel309Layout = new javax.swing.GroupLayout(mainPanel309);
+        mainPanel309.setLayout(mainPanel309Layout);
+        mainPanel309Layout.setHorizontalGroup(
+            mainPanel309Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(slidePanel309, javax.swing.GroupLayout.DEFAULT_SIZE, 791, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        mainPanel309Layout.setVerticalGroup(
+            mainPanel309Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, mainPanel309Layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(slidePanel309, javax.swing.GroupLayout.DEFAULT_SIZE, 454, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mainPanel309, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mainPanel309, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentResized
+    private void signUpButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signUpButtonMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_formComponentResized
+        signUpPanel309.setBackground(new Color(230, 230, 230));
+    }//GEN-LAST:event_signUpButtonMouseEntered
 
-    private void slideLabel309AncestorResized(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_slideLabel309AncestorResized
+    private void signUpButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signUpButtonMouseExited
         // TODO add your handling code here:
-    }//GEN-LAST:event_slideLabel309AncestorResized
+        signUpPanel309.setBackground(new Color(255, 255, 255));
 
-    private void jPanel2AncestorResized(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_jPanel2AncestorResized
+    }//GEN-LAST:event_signUpButtonMouseExited
+
+    private void signInButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signInButtonMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPanel2AncestorResized
+        signInPanel309.setBackground(new Color(0,90,140));
+    }//GEN-LAST:event_signInButtonMouseEntered
+
+    private void signInButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signInButtonMouseExited
+        // TODO add your handling code here:
+        signInPanel309.setBackground(new Color(0, 100, 150));
+    }//GEN-LAST:event_signInButtonMouseExited
+
+    private void signInButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signInButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_signInButtonMouseClicked
+
+    private void signUpButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signUpButtonMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_signUpButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -168,6 +277,8 @@ public class MoDau309 extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -178,10 +289,13 @@ public class MoDau309 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JButton logInButton309;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel logoLabel309;
-    private javax.swing.JButton signInButton309;
-    private javax.swing.JLabel slideLabel309;
+    private javax.swing.JPanel mainPanel309;
+    private javax.swing.JLabel signInLabel309;
+    private javax.swing.JPanel signInPanel309;
+    private javax.swing.JLabel signUpLabel309;
+    private javax.swing.JPanel signUpPanel309;
+    private javax.swing.JPanel slidePanel309;
     // End of variables declaration//GEN-END:variables
 }
