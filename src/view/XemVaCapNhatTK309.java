@@ -40,37 +40,36 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
     // Khởi tạo dữ liệu ngày/tháng/năm cho các comboBox tương ứng
     public void initComboBox309() {
         // yearComboBox
-        Vector data309 = new Vector();
+        Vector yearData309 = new Vector();
         int year = Year.now().getValue();
         for (int i = year; i >= 1900; i--) {
-            data309.add("" + i);
+            yearData309.add("" + i);
         }
-        DefaultComboBoxModel yearDCBM = new DefaultComboBoxModel(data309);
+        DefaultComboBoxModel yearDCBM = new DefaultComboBoxModel(yearData309);
         yearComboBox309.setModel(yearDCBM);
-        data309.clear();
         
         // monthComboBox
-//        Vector monthData = new Vector();
+        Vector monthData309 = new Vector();
         for (int i = 1; i <= 12; i++) {
             if (i > 9) {
-                data309.add("" + i);
+                monthData309.add("" + i);
             } else {
-                data309.add("0" + i);
+                monthData309.add("0" + i);
             }
         }
-        DefaultComboBoxModel monthDCBM = new DefaultComboBoxModel(data309);
+        DefaultComboBoxModel monthDCBM = new DefaultComboBoxModel(monthData309);
         monthComboBox309.setModel(monthDCBM);
-        data309.clear();
+        
         // dayComboBox
-//        Vector dayData = new Vector();
+        Vector dayData309 = new Vector();
         for (int i = 1; i <= 31; i++) {
             if (i > 9) {
-                data309.add("" + i);
+                dayData309.add("" + i);
             } else {
-                data309.add("0" + i);
+                dayData309.add("0" + i);
             }
         }
-        DefaultComboBoxModel dayDCBM = new DefaultComboBoxModel(data309);
+        DefaultComboBoxModel dayDCBM = new DefaultComboBoxModel(dayData309);
         dayComboBox309.setModel(dayDCBM);
     }
 
@@ -541,7 +540,7 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
                         .addComponent(updateButton309))
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(logoLabel309, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(logoLabel309, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
