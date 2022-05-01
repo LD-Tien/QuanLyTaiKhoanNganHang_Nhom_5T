@@ -2,34 +2,63 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package edu.poly.atmjavanc.view;
+package view;
 
 import edu.poly.atmjavanc.Dao.AccountDao;
 import edu.poly.atmjavanc.Model.Account;
 import edu.poly.atmjavanc.helper.databasehelper;
+import static edu.poly.atmjavanc.view.viewSoDu336.MaThe336;
 import java.awt.Color;
+import java.awt.Image;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import static java.nio.file.Paths.get;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.Year;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import static javax.swing.UIManager.get;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
  * @author LÊ VĂN THẮNG
  */
-public class DangKiTK336 extends javax.swing.JFrame {
 
+public class DangKiTK336 extends javax.swing.JFrame {
+String fileName ;
+Account acc ;
     /**
      * Creates new form DangKiTK
      */
+ 
     public DangKiTK336() {
         initComponents();
         setLocationRelativeTo(null);
+        dangkidialog.setLocationRelativeTo(null);
+         setDataCombobox336();
+         acc =new Account();
+        
+    }
+    private void setDataCombobox336(){
+         Vector yearData = new Vector();
+        int year = Year.now().getValue();
+        for (int i = year; i >= 1900; i--) {
+            yearData.add("" + i);
+        }
+        DefaultComboBoxModel yearDCBM = new DefaultComboBoxModel(yearData);
+        comboboxNamSinh.setModel(yearDCBM);
     }
 
     /**
@@ -65,9 +94,9 @@ public class DangKiTK336 extends javax.swing.JFrame {
         jLabel26 = new javax.swing.JLabel();
         TxtshowTenDN = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        txtshowgioitinh = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        txtshowngaysinh336 = new javax.swing.JTextField();
         jPanel11 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -85,33 +114,38 @@ public class DangKiTK336 extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jComboBox3 = new javax.swing.JComboBox<>();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        radioNam336 = new javax.swing.JRadioButton();
+        radioNu336 = new javax.swing.JRadioButton();
+        radioKhac336 = new javax.swing.JRadioButton();
+        cbBthang336 = new javax.swing.JComboBox<>();
+        comboboxNamSinh = new javax.swing.JComboBox<>();
+        cbBngay336 = new javax.swing.JComboBox<>();
         jLabel23 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtTenDN336 = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txtMatKhau336 = new javax.swing.JPasswordField();
         jLabel25 = new javax.swing.JLabel();
-        jPasswordField2 = new javax.swing.JPasswordField();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        txtXacNhan336 = new javax.swing.JPasswordField();
+        txtHoten336 = new javax.swing.JTextField();
+        txtEmail336 = new javax.swing.JTextField();
+        txtCMND336 = new javax.swing.JTextField();
+        txtSDT336 = new javax.swing.JTextField();
+        txtDiachi336 = new javax.swing.JTextField();
+        jPanel2 = new javax.swing.JPanel();
+        Anh336 = new javax.swing.JLabel();
+        btnchonanh336 = new javax.swing.JButton();
+        btnxoaanh336 = new javax.swing.JButton();
+        Tbtnhienthi1 = new javax.swing.JToggleButton();
+        Tbtnhienthi2 = new javax.swing.JToggleButton();
         jPanel4 = new javax.swing.JPanel();
         btnDangKi336 = new javax.swing.JButton();
         btnThoat336 = new javax.swing.JButton();
 
         dangkidialog.setTitle("Đăng Kí Thành Công");
         dangkidialog.setBackground(new java.awt.Color(0, 102, 255));
-        dangkidialog.setMinimumSize(new java.awt.Dimension(360, 615));
+        dangkidialog.setMinimumSize(new java.awt.Dimension(750, 500));
         dangkidialog.setModal(true);
+        dangkidialog.setPreferredSize(new java.awt.Dimension(750, 500));
         dangkidialog.addHierarchyBoundsListener(new java.awt.event.HierarchyBoundsListener() {
             public void ancestorMoved(java.awt.event.HierarchyEvent evt) {
             }
@@ -219,9 +253,9 @@ public class DangKiTK336 extends javax.swing.JFrame {
         jLabel27.setForeground(new java.awt.Color(255, 255, 255));
         jLabel27.setText("Giới Tính");
 
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        txtshowgioitinh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                txtshowgioitinhActionPerformed(evt);
             }
         });
 
@@ -229,9 +263,9 @@ public class DangKiTK336 extends javax.swing.JFrame {
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
         jLabel28.setText("Ngày Sinh");
 
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        txtshowngaysinh336.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                txtshowngaysinh336ActionPerformed(evt);
             }
         });
 
@@ -274,11 +308,11 @@ public class DangKiTK336 extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(txtshowCMND, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtshowgioitinh, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel28)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
+                        .addComponent(txtshowngaysinh336, javax.swing.GroupLayout.DEFAULT_SIZE, 109, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -319,9 +353,9 @@ public class DangKiTK336 extends javax.swing.JFrame {
                         .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtshowgioitinh, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtshowngaysinh336, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18))
         );
 
@@ -445,7 +479,7 @@ public class DangKiTK336 extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(155, 155, 155)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -455,7 +489,7 @@ public class DangKiTK336 extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -502,52 +536,53 @@ public class DangKiTK336 extends javax.swing.JFrame {
         jLabel22.setText("Giới Tính");
         jLabel22.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
-        btnGroup1.add(jRadioButton1);
-        jRadioButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton1.setText("Nam");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnGroup1.add(radioNam336);
+        radioNam336.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        radioNam336.setForeground(new java.awt.Color(255, 255, 255));
+        radioNam336.setSelected(true);
+        radioNam336.setText("Nam");
+        radioNam336.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                radioNam336ActionPerformed(evt);
             }
         });
 
-        btnGroup1.add(jRadioButton2);
-        jRadioButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton2.setText("Nữ");
+        btnGroup1.add(radioNu336);
+        radioNu336.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        radioNu336.setForeground(new java.awt.Color(255, 255, 255));
+        radioNu336.setText("Nữ");
 
-        btnGroup1.add(jRadioButton3);
-        jRadioButton3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jRadioButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton3.setText("Khác");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnGroup1.add(radioKhac336);
+        radioKhac336.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        radioKhac336.setForeground(new java.awt.Color(255, 255, 255));
+        radioKhac336.setText("Khác");
+        radioKhac336.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
+                radioKhac336ActionPerformed(evt);
             }
         });
 
-        jComboBox2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
+        cbBthang336.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        cbBthang336.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12" }));
 
-        jComboBox3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1900" }));
-        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+        comboboxNamSinh.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        comboboxNamSinh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1900" }));
+        comboboxNamSinh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox3ActionPerformed(evt);
+                comboboxNamSinhActionPerformed(evt);
             }
         });
 
-        jComboBox1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "28", "29", "30", "31" }));
+        cbBngay336.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        cbBngay336.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "28", "29", "30", "31" }));
 
         jLabel23.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setText("Tên Đăng Nhập");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtTenDN336.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtTenDN336ActionPerformed(evt);
             }
         });
 
@@ -555,9 +590,9 @@ public class DangKiTK336 extends javax.swing.JFrame {
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("Mật khẩu");
 
-        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+        txtMatKhau336.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jPasswordField1ActionPerformed(evt);
+                txtMatKhau336ActionPerformed(evt);
             }
         });
 
@@ -565,27 +600,57 @@ public class DangKiTK336 extends javax.swing.JFrame {
         jLabel25.setForeground(new java.awt.Color(255, 255, 255));
         jLabel25.setText("Xác Nhận");
 
-        jCheckBox1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox1.setText("Hiển Thị mật Khẩu");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        txtHoten336.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                txtHoten336ActionPerformed(evt);
             }
         });
 
-        jCheckBox2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jCheckBox2.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox2.setText("Hiển Thị Xác Nhận");
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+        txtDiachi336.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
+                txtDiachi336ActionPerformed(evt);
             }
         });
 
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Anh336, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Anh336, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        btnchonanh336.setText("chọn ảnh");
+        btnchonanh336.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                btnchonanh336ActionPerformed(evt);
+            }
+        });
+
+        btnxoaanh336.setText("xóa ảnh");
+        btnxoaanh336.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnxoaanh336ActionPerformed(evt);
+            }
+        });
+
+        Tbtnhienthi1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mắt.png"))); // NOI18N
+        Tbtnhienthi1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Tbtnhienthi1ActionPerformed(evt);
+            }
+        });
+
+        Tbtnhienthi2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mắt.png"))); // NOI18N
+        Tbtnhienthi2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Tbtnhienthi2ActionPerformed(evt);
             }
         });
 
@@ -595,58 +660,66 @@ public class DangKiTK336 extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel23)
-                                .addGap(29, 29, 29)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGap(123, 123, 123)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtHoten336, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(radioNam336, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(radioNu336, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(radioKhac336, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtEmail336))
+                                .addGap(18, 18, 18)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
-                            .addComponent(jCheckBox2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(21, 21, 21))
+                                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addComponent(cbBngay336, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cbBthang336, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(comboboxNamSinh, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(txtCMND336)
+                                    .addComponent(txtSDT336)))
+                            .addComponent(txtDiachi336)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jRadioButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jRadioButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jTextField3))
-                        .addGap(18, 18, 18)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnchonanh336)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addComponent(btnxoaanh336)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 11, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtTenDN336, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
+                                .addComponent(txtXacNhan336, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtMatKhau336, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox3, 0, 66, Short.MAX_VALUE))
-                            .addComponent(jTextField4)
-                            .addComponent(jTextField5)))
-                    .addComponent(jTextField6))
+                            .addComponent(Tbtnhienthi1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Tbtnhienthi2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -655,9 +728,9 @@ public class DangKiTK336 extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jTextField2)
+                        .addComponent(txtHoten336)
                         .addGap(1, 1, 1))
-                    .addComponent(jTextField4)
+                    .addComponent(txtCMND336)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -665,38 +738,49 @@ public class DangKiTK336 extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtSDT336, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEmail336, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3)
+                    .addComponent(radioNam336)
+                    .addComponent(radioNu336)
+                    .addComponent(radioKhac336)
                     .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox1)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbBngay336)
+                    .addComponent(cbBthang336, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboboxNamSinh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
-                    .addComponent(jTextField6))
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtDiachi336, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBox2))
-                .addContainerGap(31, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(btnchonanh336)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnxoaanh336)
+                        .addContainerGap())
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtTenDN336, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(txtMatKhau336, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(Tbtnhienthi1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtXacNhan336, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Tbtnhienthi2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         jPanel4.setBackground(new java.awt.Color(0, 153, 255));
@@ -748,16 +832,15 @@ public class DangKiTK336 extends javax.swing.JFrame {
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -769,7 +852,77 @@ public class DangKiTK336 extends javax.swing.JFrame {
     }//GEN-LAST:event_btnThoat336ActionPerformed
 
     private void btnDangKi336ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangKi336ActionPerformed
+        StringBuilder sb= new StringBuilder();
+       if(txtHoten336.getText().equals("") ||txtCMND336.getText().equals("")||txtEmail336.getText().equals("")
+               ||txtMatKhau336.getText().equals("")||txtTenDN336.getText().equals("")||txtXacNhan336.getText().equals("")){
+           sb.append("Cần Nhập Đầy Đủ thông tin không được dể trống");
+       }
+        if(sb.length()>0){
+           JOptionPane.showMessageDialog(this, sb);
+           return;
+       }
+        
+       try {
+            
+            
+            acc.setMaKhau(txtMatKhau336.getText());
+            acc.setTenDangNhap(txtTenDN336.getText());
+            acc.setHoTen(txtHoten336.getText());
+            acc.setCmnd(txtCMND336.getText());
+            acc.setSdt(txtSDT336.getText());
+            acc.setEmail(txtEmail336.getText());
+             acc.setDiaChi(txtDiachi336.getText());
+              if(radioNam336.isSelected())
+                  acc.setGioiTinh(radioNam336.getText());
+              else
+                  if(radioNu336.isSelected())
+                  acc.setGioiTinh(radioNu336.getText());
+                   else
+                      if(radioKhac336.isSelected())
+                        acc.setGioiTinh(radioKhac336.getText());
+              acc.setNgaySinh(cbBngay336.getSelectedItem()+"/"+cbBthang336.getSelectedItem()+"/"+comboboxNamSinh.getSelectedItem());
+              
+       
+//acc.setAnh(bos.toByteArray());
+           
+             AccountDao accdao = new AccountDao();
+            accdao.DangKi336(acc);
+            
+            JOptionPane.showMessageDialog(this, "tài liêu đã đc lưu");
+            
+            
+            String sql ="SELECT * FROM Account where Email = ? ";
+        try(
+            Connection con =databasehelper.opConnection();
+            PreparedStatement pstmt= con.prepareStatement(sql);
+             ){
+            pstmt.setString(1, txtEmail336.getText());
+            ResultSet rs = pstmt.executeQuery();
+            if(rs.next()){
+                TxtshowTenDN.setText(rs.getString("Tendangnhap"));
+                txtshowCMND.setText(rs.getString("CMND"));
+                txtshowDiaChi.setText(rs.getString("DiaChi"));
+                txtshowEmail.setText(rs.getString("Email"));
+                txtshowHoTen.setText(rs.getString("HoTen"));
+                txtshowMaPin.setText(rs.getString("Matkhau"));
+                txtshowSDT.setText(rs.getString("SDT"));
+                txtshowSoDu.setText(rs.getString("SoDu"));
+                txtshowSoTK.setText(rs.getString("MaThe"));
+                txtshowgioitinh.setText(rs.getString("gioitinh"));
+                txtshowngaysinh336.setText(rs.getString("ngaysinh"));
+                 
+            }
+                this.setVisible(false);
+                dangkidialog.setVisible(true);
+                
+        } catch (SQLException ex) {
+        }
 
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Errol " +e.getMessage());
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_btnDangKi336ActionPerformed
 
     private void txtshowMaPinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtshowMaPinActionPerformed
@@ -794,49 +947,98 @@ public class DangKiTK336 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel1AncestorMoved
 
-    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+    private void comboboxNamSinhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboboxNamSinhActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox3ActionPerformed
+    }//GEN-LAST:event_comboboxNamSinhActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void radioNam336ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioNam336ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_radioNam336ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtTenDN336ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTenDN336ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtTenDN336ActionPerformed
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    private void txtMatKhau336ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMatKhau336ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
+    }//GEN-LAST:event_txtMatKhau336ActionPerformed
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void radioKhac336ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioKhac336ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_radioKhac336ActionPerformed
 
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+    private void txtDiachi336ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDiachi336ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
-
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
-
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_txtDiachi336ActionPerformed
 
     private void TxtshowTenDNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtshowTenDNActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtshowTenDNActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void txtshowgioitinhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtshowgioitinhActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_txtshowgioitinhActionPerformed
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void txtshowngaysinh336ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtshowngaysinh336ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_txtshowngaysinh336ActionPerformed
+
+    private void btnchonanh336ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnchonanh336ActionPerformed
+        acc =new Account();
+        JFileChooser filechooser = new JFileChooser();
+        FileNameExtensionFilter imageFilter = new FileNameExtensionFilter("Hình ảnh", "jpg", "png"); // lọc loại file
+        filechooser.setFileFilter(imageFilter);
+        filechooser.setMultiSelectionEnabled(false);
+        int x = filechooser.showDialog(this, "Chọn file");
+        
+        if (x == JFileChooser.APPROVE_OPTION) { // đã chọn file
+            File f = filechooser.getSelectedFile();
+            fileName = f.getAbsolutePath();
+            ImageIcon imageIcon = new ImageIcon(new ImageIcon(fileName).getImage().getScaledInstance(Anh336.getWidth(), Anh336.getHeight(), Image.SCALE_SMOOTH));
+            Anh336.setIcon(imageIcon);
+            Anh336.setText("");
+            
+            // Chuyển từ ảnh sang byte[]
+            try {
+               
+                File image = new File(fileName);
+                FileInputStream fis = new FileInputStream(image);
+                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                byte[] buf = new byte[1024];
+                for (int readNum; (readNum = fis.read(buf)) != -1;) {
+                    bos.write(buf, 0, readNum);
+                }
+                acc.setAnh(bos.toByteArray());
+            } 
+            catch (FileNotFoundException ex) {
+                Logger.getLogger(DangKiTK336.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(DangKiTK336.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }        
+    }//GEN-LAST:event_btnchonanh336ActionPerformed
+
+    private void btnxoaanh336ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnxoaanh336ActionPerformed
+        Anh336.setIcon(null);
+    }//GEN-LAST:event_btnxoaanh336ActionPerformed
+
+    private void Tbtnhienthi2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tbtnhienthi2ActionPerformed
+     if(Tbtnhienthi2.isSelected()){
+            txtMatKhau336.setEchoChar((char)0);
+        }else
+            txtMatKhau336.setEchoChar('*');
+    }//GEN-LAST:event_Tbtnhienthi2ActionPerformed
+
+    private void Tbtnhienthi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tbtnhienthi1ActionPerformed
+        if(Tbtnhienthi1.isSelected()){
+            txtMatKhau336.setEchoChar((char)0);
+        }else
+            txtMatKhau336.setEchoChar('*');
+    }//GEN-LAST:event_Tbtnhienthi1ActionPerformed
+
+    private void txtHoten336ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHoten336ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtHoten336ActionPerformed
     
     /**
      * @param args the command line arguments
@@ -865,6 +1067,8 @@ public class DangKiTK336 extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -875,17 +1079,20 @@ public class DangKiTK336 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Anh336;
+    private javax.swing.JToggleButton Tbtnhienthi1;
+    private javax.swing.JToggleButton Tbtnhienthi2;
     private javax.swing.JTextField TxtshowTenDN;
     private javax.swing.JButton btnDangKi336;
     private javax.swing.ButtonGroup btnGroup1;
     private javax.swing.JButton btnThoat336;
     private javax.swing.JButton btnThoatdialog;
+    private javax.swing.JButton btnchonanh336;
+    private javax.swing.JButton btnxoaanh336;
+    private javax.swing.JComboBox<String> cbBngay336;
+    private javax.swing.JComboBox<String> cbBthang336;
+    private javax.swing.JComboBox<String> comboboxNamSinh;
     private javax.swing.JDialog dangkidialog;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -917,22 +1124,21 @@ public class DangKiTK336 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JRadioButton radioKhac336;
+    private javax.swing.JRadioButton radioNam336;
+    private javax.swing.JRadioButton radioNu336;
+    private javax.swing.JTextField txtCMND336;
+    private javax.swing.JTextField txtDiachi336;
+    private javax.swing.JTextField txtEmail336;
+    private javax.swing.JTextField txtHoten336;
+    private javax.swing.JPasswordField txtMatKhau336;
+    private javax.swing.JTextField txtSDT336;
+    private javax.swing.JTextField txtTenDN336;
+    private javax.swing.JPasswordField txtXacNhan336;
     private javax.swing.JTextField txtshowCMND;
     private javax.swing.JTextField txtshowDiaChi;
     private javax.swing.JTextField txtshowEmail;
@@ -941,5 +1147,7 @@ public class DangKiTK336 extends javax.swing.JFrame {
     private javax.swing.JTextField txtshowSDT;
     private javax.swing.JTextField txtshowSoDu;
     private javax.swing.JTextField txtshowSoTK;
+    private javax.swing.JTextField txtshowgioitinh;
+    private javax.swing.JTextField txtshowngaysinh336;
     // End of variables declaration//GEN-END:variables
 }
