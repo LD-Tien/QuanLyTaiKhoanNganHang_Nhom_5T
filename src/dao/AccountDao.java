@@ -4,7 +4,7 @@ import java.util.*;
 import java.sql.*;
 import model.Account;
 
-public class Dao {
+public class AccountDao {
 
     public Account getAccountByMaThe309(String maThe) throws SQLException {
         Connection connection309 = SQLServerConnection.getSQLServerConnection();
@@ -31,13 +31,21 @@ public class Dao {
         return null;
     }
 
-    public void UpdateAccount309(Account acc) throws SQLException {
+    public void UpdateAccount309(Account acc309) throws SQLException {
         Connection connection309 = SQLServerConnection.getSQLServerConnection();
-        Statement st309 = connection309.createStatement();
-        String sql = "Update Account Set Anh = ? Where MaThe = ?";
+        String sql = "Update Account Set Anh = ?, HoTen = ?, SDT = ?, NgaySinh = ?, DiaChi = ?, Email = ?, GioiTinh = ?, TenDangNhap = ?, CMND = ?, MatKhau = ?  Where MaThe = ?";
         PreparedStatement ps309 = connection309.prepareStatement(sql);
-        ps309.setBytes(1, acc.getAnh());
-        ps309.setString(2, acc.getMaThe());
+        ps309.setBytes(1, acc309.getAnh());
+        ps309.setString(2, acc309.getHoTen());
+        ps309.setString(3, acc309.getSdt());
+        ps309.setString(4, acc309.getNgaySinh());
+        ps309.setString(5, acc309.getDiaChi());
+        ps309.setString(6, acc309.getEmail());
+        ps309.setString(7, acc309.getGioiTinh());
+        ps309.setString(8, acc309.getTenDangNhap());
+        ps309.setString(9, acc309.getCmnd());
+        ps309.setString(10, acc309.getMaKhau());
+        ps309.setString(11, acc309.getMaThe());
         ps309.executeUpdate();
     }
 }
