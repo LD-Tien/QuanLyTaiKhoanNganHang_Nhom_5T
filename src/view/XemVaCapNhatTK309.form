@@ -114,7 +114,7 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="backButton309" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="updateButton309" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -195,9 +195,9 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="phoneNumberFormattedTextField309" alignment="1" max="32767" attributes="0"/>
                                           <Component id="emailTextField309" alignment="1" max="32767" attributes="0"/>
                                           <Component id="addressTextField309" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="phoneNumberTextField309" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Component id="jLabel14" alignment="1" max="32767" attributes="0"/>
@@ -214,7 +214,7 @@
                               <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="phoneNumberFormattedTextField309" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="phoneNumberTextField309" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -238,13 +238,6 @@
                           <Font name="Tahoma" size="12" style="1"/>
                         </Property>
                         <Property name="text" type="java.lang.String" value="E-mail"/>
-                      </Properties>
-                    </Component>
-                    <Component class="javax.swing.JFormattedTextField" name="phoneNumberFormattedTextField309">
-                      <Properties>
-                        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-                          <Format format="#0" subtype="-1" type="0"/>
-                        </Property>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel11">
@@ -276,6 +269,8 @@
                         <Property name="text" type="java.lang.String" value="Th&#xf4;ng tin li&#xea;n l&#x1ea1;c"/>
                       </Properties>
                     </Component>
+                    <Component class="javax.swing.JTextField" name="phoneNumberTextField309">
+                    </Component>
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="jPanel8">
@@ -292,7 +287,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
-                                      <Component id="chooseImageButton309" pref="0" max="32767" attributes="0"/>
+                                      <Component id="chooseImageButton309" pref="56" max="32767" attributes="0"/>
                                       <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
@@ -407,15 +402,15 @@
                                               <Component id="cmndTextField309" alignment="0" max="32767" attributes="0"/>
                                               <Group type="102" attributes="0">
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="maleRadioButton309" max="32767" attributes="0"/>
+                                                      <Component id="maleRadioButton309" pref="51" max="32767" attributes="0"/>
                                                       <Component id="dayComboBox309" max="32767" attributes="0"/>
                                                   </Group>
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Group type="102" attributes="0">
                                                           <EmptySpace min="-2" max="-2" attributes="0"/>
-                                                          <Component id="femaleRadioButton309" max="32767" attributes="0"/>
+                                                          <Component id="femaleRadioButton309" pref="41" max="32767" attributes="0"/>
                                                           <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                                                          <Component id="gayRadioButton309" max="32767" attributes="0"/>
+                                                          <Component id="gayRadioButton309" pref="51" max="32767" attributes="0"/>
                                                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                                       </Group>
                                                       <Group type="102" attributes="0">
@@ -614,15 +609,13 @@
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="maTheTextField309" max="32767" attributes="0"/>
                                           <Group type="102" attributes="0">
-                                              <Component id="PasswordField309" min="-2" pref="203" max="-2" attributes="0"/>
+                                              <Component id="PasswordField309" max="32767" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="visiblePasswordButton" pref="0" max="32767" attributes="0"/>
-                                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                                              <Component id="jButton3" min="-2" pref="38" max="-2" attributes="0"/>
+                                              <Component id="visiblePasswordButton309" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
-                                  <Component id="jLabel13" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="jLabel13" alignment="1" pref="414" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -645,10 +638,9 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="PasswordField309" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="PasswordField309" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButton3" max="32767" attributes="0"/>
-                                  <Component id="visiblePasswordButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="visiblePasswordButton309" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
@@ -696,7 +688,6 @@
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="f0" green="f0" red="f0" type="rgb"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="jPasswordField1"/>
                         <Property name="enabled" type="boolean" value="false"/>
                         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                           <Dimension value="[97, 25]"/>
@@ -708,22 +699,15 @@
                         <Property name="enabled" type="boolean" value="false"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="visiblePasswordButton">
+                    <Component class="javax.swing.JToggleButton" name="visiblePasswordButton309">
                       <Properties>
                         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/Icons/icons8_invisible_16px_2.png"/>
+                          <Image iconType="3" name="/icons/icons8_invisible_16px_2.png"/>
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="visiblePasswordButtonActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="visiblePasswordButton309ActionPerformed"/>
                       </Events>
-                    </Component>
-                    <Component class="javax.swing.JButton" name="jButton3">
-                      <Properties>
-                        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                          <Image iconType="3" name="/Icons/icons8_edit_16px.png"/>
-                        </Property>
-                      </Properties>
                     </Component>
                   </SubComponents>
                 </Container>

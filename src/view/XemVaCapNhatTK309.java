@@ -1,7 +1,6 @@
 package view;
 
-
-import dao.Dao;
+import dao.AccountDao;
 import java.awt.Image;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -47,7 +46,7 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
         }
         DefaultComboBoxModel yearDCBM = new DefaultComboBoxModel(yearData309);
         yearComboBox309.setModel(yearDCBM);
-        
+
         // monthComboBox
         Vector monthData309 = new Vector();
         for (int i = 1; i <= 12; i++) {
@@ -59,7 +58,7 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
         }
         DefaultComboBoxModel monthDCBM = new DefaultComboBoxModel(monthData309);
         monthComboBox309.setModel(monthDCBM);
-        
+
         // dayComboBox
         Vector dayData309 = new Vector();
         for (int i = 1; i <= 31; i++) {
@@ -76,7 +75,7 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
     // Gán dữ liệu acc309 vào updateFrame bằng MaThe
     public void setDataUpdateFrame() throws SQLException {
         byte[] image = acc309.getAnh();
-        if(image != null) {
+        if (image != null) {
             ImageIcon imageIcon = new ImageIcon(new ImageIcon(image).getImage().getScaledInstance(imageLabel309.getWidth(), imageLabel309.getHeight(), Image.SCALE_SMOOTH));
             imageLabel309.setIcon(imageIcon);
             imageLabel309.setText("");
@@ -87,12 +86,12 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
         dayComboBox309.setSelectedItem(acc309.getNgaySinh().substring(8));
         monthComboBox309.setSelectedItem(acc309.getNgaySinh().substring(5, 7));
         yearComboBox309.setSelectedItem(acc309.getNgaySinh().substring(0, 4));
-        phoneNumberFormattedTextField309.setText(acc309.getSdt());
+        phoneNumberTextField309.setText(acc309.getSdt());
         emailTextField309.setText(acc309.getEmail());
         addressTextField309.setText(acc309.getDiaChi());
         cmndTextField309.setText(acc309.getCmnd());
         PasswordField309.setText(acc309.getMaKhau());
-        
+
         if (acc309.getGioiTinh().equals("Nam")) {
             maleRadioButton309.setSelected(true);
         } else if (acc309.getGioiTinh().equals("Nữ")) {
@@ -119,12 +118,12 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        phoneNumberFormattedTextField309 = new javax.swing.JFormattedTextField();
         jLabel11 = new javax.swing.JLabel();
         emailTextField309 = new javax.swing.JTextField();
         addressTextField309 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        phoneNumberTextField309 = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         imageLabel309 = new javax.swing.JLabel();
@@ -152,8 +151,7 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         PasswordField309 = new javax.swing.JPasswordField();
         maTheTextField309 = new javax.swing.JTextField();
-        visiblePasswordButton = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        visiblePasswordButton309 = new javax.swing.JToggleButton();
         backButton309 = new javax.swing.JButton();
         updateButton309 = new javax.swing.JButton();
         logoLabel309 = new javax.swing.JLabel();
@@ -182,8 +180,6 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel12.setText("E-mail");
 
-        phoneNumberFormattedTextField309.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel11.setText("SĐT");
 
@@ -208,9 +204,9 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
                             .addComponent(jLabel9))
                         .addGap(70, 70, 70)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(phoneNumberFormattedTextField309, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(emailTextField309, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(addressTextField309, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addComponent(addressTextField309, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(phoneNumberTextField309)))
                     .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -222,7 +218,7 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
                 .addGap(9, 9, 9)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(phoneNumberFormattedTextField309, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(phoneNumberTextField309, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
@@ -329,14 +325,14 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
                             .addComponent(cmndTextField309)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(maleRadioButton309, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(maleRadioButton309, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
                                     .addComponent(dayComboBox309, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel5Layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(femaleRadioButton309, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(femaleRadioButton309, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
                                         .addGap(8, 8, 8)
-                                        .addComponent(gayRadioButton309, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(gayRadioButton309, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
                                         .addGap(20, 20, 20))
                                     .addGroup(jPanel5Layout.createSequentialGroup()
                                         .addGap(5, 5, 5)
@@ -380,7 +376,7 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                        .addComponent(chooseImageButton309, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addComponent(chooseImageButton309, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
                         .addGap(70, 70, 70))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -421,20 +417,17 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
         jLabel13.setText("Thông tin tài khoản");
 
         PasswordField309.setBackground(new java.awt.Color(240, 240, 240));
-        PasswordField309.setText("jPasswordField1");
         PasswordField309.setEnabled(false);
         PasswordField309.setPreferredSize(new java.awt.Dimension(97, 25));
 
         maTheTextField309.setEnabled(false);
 
-        visiblePasswordButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8_invisible_16px_2.png"))); // NOI18N
-        visiblePasswordButton.addActionListener(new java.awt.event.ActionListener() {
+        visiblePasswordButton309.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8_invisible_16px_2.png"))); // NOI18N
+        visiblePasswordButton309.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                visiblePasswordButtonActionPerformed(evt);
+                visiblePasswordButton309ActionPerformed(evt);
             }
         });
-
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8_edit_16px.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -455,12 +448,10 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(maTheTextField309)
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(PasswordField309, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(PasswordField309, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(visiblePasswordButton, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                                .addGap(4, 4, 4)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(visiblePasswordButton309))))
+                    .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 414, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -478,10 +469,9 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
                     .addComponent(userNameTextField309, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(PasswordField309, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(PasswordField309, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(visiblePasswordButton))
+                    .addComponent(visiblePasswordButton309, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -554,7 +544,7 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
                     .addComponent(logoLabel309, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backButton309)
                     .addComponent(updateButton309))
@@ -607,7 +597,7 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
             ImageIcon imageIcon = new ImageIcon(new ImageIcon(fileName309).getImage().getScaledInstance(imageLabel309.getWidth(), imageLabel309.getHeight(), Image.SCALE_SMOOTH));
             imageLabel309.setIcon(imageIcon);
             imageLabel309.setText("");
-            
+
             // Chuyển từ ảnh sang byte[]
             try {
                 File image = new File(fileName309);
@@ -642,8 +632,27 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
         if (ret != JOptionPane.YES_OPTION) {
             return;
         }
-        
+
         try {
+            acc309.setHoTen(nameTextField309.getText());
+            acc309.setCmnd(cmndTextField309.getText());
+            acc309.setNgaySinh(monthComboBox309.getSelectedItem() + "/" + dayComboBox309.getSelectedItem() + "/" + yearComboBox309.getSelectedItem());
+            if (maleRadioButton309.isSelected()) {
+                acc309.setGioiTinh(String.valueOf(maleRadioButton309.getText()));
+            }
+            if (femaleRadioButton309.isSelected()) {
+                acc309.setGioiTinh(String.valueOf(femaleRadioButton309.getText()));
+            }
+            if (gayRadioButton309.isSelected()) {
+                acc309.setGioiTinh(String.valueOf(gayRadioButton309.getText()));
+            }
+
+            acc309.setSdt(phoneNumberTextField309.getText());
+            acc309.setEmail(emailTextField309.getText());
+            acc309.setDiaChi(addressTextField309.getText());
+            acc309.setMaThe(maTheTextField309.getText());
+            acc309.setTenDangNhap(userNameTextField309.getText());
+            acc309.setMaKhau(String.valueOf(PasswordField309.getPassword()));
             accServices309.UpdateAccount309(acc309);
             JOptionPane.showMessageDialog(this, "Tài khoản đã được cập nhật");
         } catch (SQLException ex) {
@@ -656,14 +665,20 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_backButton309ActionPerformed
 
-    private void visiblePasswordButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visiblePasswordButtonActionPerformed
-        // TODO add your handling code here:
-        PasswordField309.setEchoChar((char)0);
-    }//GEN-LAST:event_visiblePasswordButtonActionPerformed
-
     private void nameTextField309ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextField309ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nameTextField309ActionPerformed
+
+    private void visiblePasswordButton309ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visiblePasswordButton309ActionPerformed
+        // TODO add your handling code here:
+        if (visiblePasswordButton309.isSelected()) {
+            visiblePasswordButton309.setIcon(new ImageIcon("src\\icons\\icons8_eye_16px_1.png"));
+            PasswordField309.setEchoChar((char)0);
+        } else {
+            visiblePasswordButton309.setIcon(new ImageIcon("src\\icons\\icons8_invisible_16px_2.png"));
+            PasswordField309.setEchoChar('*');
+        }
+    }//GEN-LAST:event_visiblePasswordButton309ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -725,7 +740,6 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
     private javax.swing.ButtonGroup genderButtonGroup;
     private javax.swing.JLabel imageLabel309;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -753,10 +767,10 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
     private javax.swing.JRadioButton maleRadioButton309;
     private javax.swing.JComboBox<String> monthComboBox309;
     private javax.swing.JTextField nameTextField309;
-    private javax.swing.JFormattedTextField phoneNumberFormattedTextField309;
+    private javax.swing.JTextField phoneNumberTextField309;
     private javax.swing.JButton updateButton309;
     private javax.swing.JTextField userNameTextField309;
-    private javax.swing.JButton visiblePasswordButton;
+    private javax.swing.JToggleButton visiblePasswordButton309;
     private javax.swing.JComboBox<String> yearComboBox309;
     // End of variables declaration//GEN-END:variables
 }
