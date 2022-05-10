@@ -23,6 +23,7 @@ public static  String MaThe336="100000000014";
      */
     public viewSoDu336() throws SQLException {
         initComponents();
+        setLocationRelativeTo(null);
         //Showdatabase(MaThe336);
     }
 //private void Showdatabase(String Mathe336) throws SQLException{
@@ -64,6 +65,7 @@ public static  String MaThe336="100000000014";
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Xem Số Dư");
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -107,6 +109,11 @@ public static  String MaThe336="100000000014";
         btnShowtK.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnShowtK.setForeground(new java.awt.Color(0, 102, 255));
         btnShowtK.setText("Xem Chi tiết tài khoản");
+        btnShowtK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowtKActionPerformed(evt);
+            }
+        });
         jPanel5.add(btnShowtK);
         btnShowtK.setBounds(230, 240, 175, 34);
 
@@ -155,6 +162,12 @@ public static  String MaThe336="100000000014";
     private void btnThoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoatActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_btnThoatActionPerformed
+
+    private void btnShowtKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowtKActionPerformed
+        XemVaCapNhatTK309 xct = new XemVaCapNhatTK309();
+        xct.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnShowtKActionPerformed
 
     /**
      * @param args the command line arguments

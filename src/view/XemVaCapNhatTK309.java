@@ -36,6 +36,10 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
         logoLabel309.setIcon(icon);
     }
 
+    XemVaCapNhatTK309() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     // Khởi tạo dữ liệu ngày/tháng/năm cho các comboBox tương ứng
     public void initComboBox309() {
         // yearComboBox
