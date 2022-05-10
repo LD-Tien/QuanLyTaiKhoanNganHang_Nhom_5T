@@ -2,13 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package view;
+package icons;
 
-//import edu.poly.atmjavanc.Dao.AccountDao;
-//import edu.poly.atmjavanc.Model.Account;
-//import edu.poly.atmjavanc.helper.databasehelper;
-//import static edu.poly.atmjavanc.view.viewSoDu336.MaThe336;
-import dao.AccountDao;
+import view.*;
+import edu.poly.atmjavanc.Dao.AccountDao;
+import edu.poly.atmjavanc.Model.Account;
+import edu.poly.atmjavanc.helper.databasehelper;
+import static edu.poly.atmjavanc.view.viewSoDu336.MaThe336;
 import java.awt.Color;
 import java.awt.Image;
 import java.io.ByteArrayOutputStream;
@@ -31,7 +31,6 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import static javax.swing.UIManager.get;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import model.Account;
 
 /**
  *
@@ -254,7 +253,6 @@ Account acc ;
         jLabel27.setForeground(new java.awt.Color(255, 255, 255));
         jLabel27.setText("Giới Tính");
 
-        txtshowgioitinh.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         txtshowgioitinh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtshowgioitinhActionPerformed(evt);
@@ -265,7 +263,6 @@ Account acc ;
         jLabel28.setForeground(new java.awt.Color(255, 255, 255));
         jLabel28.setText("Ngày Sinh");
 
-        txtshowngaysinh336.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         txtshowngaysinh336.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtshowngaysinh336ActionPerformed(evt);
@@ -287,11 +284,11 @@ Account acc ;
                 .addGap(10, 10, 10)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtshowSoTK, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtshowSoTK, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
                             .addComponent(txtshowMaPin)
-                            .addComponent(TxtshowTenDN)
-                            .addComponent(txtshowSoDu, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(txtshowSoDu)
+                            .addComponent(TxtshowTenDN))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel10Layout.createSequentialGroup()
@@ -445,9 +442,9 @@ Account acc ;
             dangkidialogLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dangkidialogLayout.createSequentialGroup()
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -461,7 +458,6 @@ Account acc ;
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/viettin.png"))); // NOI18N
         jLabel1.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
             }
@@ -643,14 +639,14 @@ Account acc ;
             }
         });
 
-        Tbtnhienthi1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8_eye_16px_1.png"))); // NOI18N
+        Tbtnhienthi1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/mắt.png"))); // NOI18N
         Tbtnhienthi1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Tbtnhienthi1ActionPerformed(evt);
             }
         });
 
-        Tbtnhienthi2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8_eye_16px_1.png"))); // NOI18N
+        Tbtnhienthi2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/mắt.png"))); // NOI18N
         Tbtnhienthi2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Tbtnhienthi2ActionPerformed(evt);
@@ -702,9 +698,9 @@ Account acc ;
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnchonanh336, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnxoaanh336, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnchonanh336)
+                            .addComponent(btnxoaanh336))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -761,9 +757,7 @@ Account acc ;
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtTenDN336, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnchonanh336)))
+                            .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -776,7 +770,10 @@ Account acc ;
                             .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Tbtnhienthi2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnxoaanh336)
+                        .addGroup(jPanel3Layout.createSequentialGroup()
+                            .addComponent(btnchonanh336)
+                            .addGap(30, 30, 30)
+                            .addComponent(btnxoaanh336))
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -850,77 +847,77 @@ Account acc ;
     }//GEN-LAST:event_btnThoat336ActionPerformed
 
     private void btnDangKi336ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangKi336ActionPerformed
-//        StringBuilder sb= new StringBuilder();
-//       if(txtHoten336.getText().equals("") ||txtCMND336.getText().equals("")||txtEmail336.getText().equals("")
-//               ||txtMatKhau336.getText().equals("")||txtTenDN336.getText().equals("")||txtXacNhan336.getText().equals("")){
-//           sb.append("Cần Nhập Đầy Đủ thông tin không được dể trống");
-//       }
-//        if(sb.length()>0){
-//           JOptionPane.showMessageDialog(this, sb);
-//           return;
-//       }
+        StringBuilder sb= new StringBuilder();
+       if(txtHoten336.getText().equals("") ||txtCMND336.getText().equals("")||txtEmail336.getText().equals("")
+               ||txtMatKhau336.getText().equals("")||txtTenDN336.getText().equals("")||txtXacNhan336.getText().equals("")){
+           sb.append("Cần Nhập Đầy Đủ thông tin không được dể trống");
+       }
+        if(sb.length()>0){
+           JOptionPane.showMessageDialog(this, sb);
+           return;
+       }
         
-//       try {
-//            
-//            
-//            acc.setMaKhau(txtMatKhau336.getText());
-//            acc.setTenDangNhap(txtTenDN336.getText());
-//            acc.setHoTen(txtHoten336.getText());
-//            acc.setCmnd(txtCMND336.getText());
-//            acc.setSdt(txtSDT336.getText());
-//            acc.setEmail(txtEmail336.getText());
-//             acc.setDiaChi(txtDiachi336.getText());
-//              if(radioNam336.isSelected())
-//                  acc.setGioiTinh(radioNam336.getText());
-//              else
-//                  if(radioNu336.isSelected())
-//                  acc.setGioiTinh(radioNu336.getText());
-//                   else
-//                      if(radioKhac336.isSelected())
-//                        acc.setGioiTinh(radioKhac336.getText());
-//              acc.setNgaySinh(cbBngay336.getSelectedItem()+"/"+cbBthang336.getSelectedItem()+"/"+comboboxNamSinh.getSelectedItem());
-//              
-//       
-////acc.setAnh(bos.toByteArray());
-//           
-//             AccountDao accdao = new AccountDao();
-//            accdao.DangKi336(acc);
-//            
-//            JOptionPane.showMessageDialog(this, "tài liêu đã đc lưu");
-//            
-//            
-//            String sql ="SELECT * FROM Account where Email = ? ";
-//        try(
-//            Connection con =databasehelper.opConnection();
-//            PreparedStatement pstmt= con.prepareStatement(sql);
-//             ){
-//            pstmt.setString(1, txtEmail336.getText());
-//            ResultSet rs = pstmt.executeQuery();
-//            if(rs.next()){
-//                TxtshowTenDN.setText(rs.getString("Tendangnhap"));
-//                txtshowCMND.setText(rs.getString("CMND"));
-//                txtshowDiaChi.setText(rs.getString("DiaChi"));
-//                txtshowEmail.setText(rs.getString("Email"));
-//                txtshowHoTen.setText(rs.getString("HoTen"));
-//                txtshowMaPin.setText(rs.getString("Matkhau"));
-//                txtshowSDT.setText(rs.getString("SDT"));
-//                txtshowSoDu.setText(rs.getString("SoDu"));
-//                txtshowSoTK.setText(rs.getString("MaThe"));
-//                txtshowgioitinh.setText(rs.getString("gioitinh"));
-//                txtshowngaysinh336.setText(rs.getString("ngaysinh"));
-//                 
-//            }
+       try {
+            
+            
+            acc.setMaKhau(txtMatKhau336.getText());
+            acc.setTenDangNhap(txtTenDN336.getText());
+            acc.setHoTen(txtHoten336.getText());
+            acc.setCmnd(txtCMND336.getText());
+            acc.setSdt(txtSDT336.getText());
+            acc.setEmail(txtEmail336.getText());
+             acc.setDiaChi(txtDiachi336.getText());
+              if(radioNam336.isSelected())
+                  acc.setGioiTinh(radioNam336.getText());
+              else
+                  if(radioNu336.isSelected())
+                  acc.setGioiTinh(radioNu336.getText());
+                   else
+                      if(radioKhac336.isSelected())
+                        acc.setGioiTinh(radioKhac336.getText());
+              acc.setNgaySinh(cbBngay336.getSelectedItem()+"/"+cbBthang336.getSelectedItem()+"/"+comboboxNamSinh.getSelectedItem());
+              
+       
+//acc.setAnh(bos.toByteArray());
+           
+             AccountDao accdao = new AccountDao();
+            accdao.DangKi336(acc);
+            
+            JOptionPane.showMessageDialog(this, "tài liêu đã đc lưu");
+            
+            
+            String sql ="SELECT * FROM Account where Email = ? ";
+        try(
+            Connection con =databasehelper.opConnection();
+            PreparedStatement pstmt= con.prepareStatement(sql);
+             ){
+            pstmt.setString(1, txtEmail336.getText());
+            ResultSet rs = pstmt.executeQuery();
+            if(rs.next()){
+                TxtshowTenDN.setText(rs.getString("Tendangnhap"));
+                txtshowCMND.setText(rs.getString("CMND"));
+                txtshowDiaChi.setText(rs.getString("DiaChi"));
+                txtshowEmail.setText(rs.getString("Email"));
+                txtshowHoTen.setText(rs.getString("HoTen"));
+                txtshowMaPin.setText(rs.getString("Matkhau"));
+                txtshowSDT.setText(rs.getString("SDT"));
+                txtshowSoDu.setText(rs.getString("SoDu"));
+                txtshowSoTK.setText(rs.getString("MaThe"));
+                txtshowgioitinh.setText(rs.getString("gioitinh"));
+                txtshowngaysinh336.setText(rs.getString("ngaysinh"));
+                 
+            }
                 this.setVisible(false);
                 dangkidialog.setVisible(true);
-//                
-//        } catch (SQLException ex) {
-//        }
-//
-//            
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(this, "Errol " +e.getMessage());
-//            e.printStackTrace();
-//        }
+                
+        } catch (SQLException ex) {
+        }
+
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Errol " +e.getMessage());
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_btnDangKi336ActionPerformed
 
     private void txtshowMaPinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtshowMaPinActionPerformed
@@ -1023,26 +1020,15 @@ Account acc ;
     private void Tbtnhienthi2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tbtnhienthi2ActionPerformed
      if(Tbtnhienthi2.isSelected()){
             txtXacNhan336.setEchoChar((char)0);
-            Tbtnhienthi2.setIcon(new ImageIcon("src\\icons\\icons8_invisible_16px_2_1.png"));
-             
         }else
-        {
-            Tbtnhienthi2.setIcon(new ImageIcon("src\\icons\\icons8_eye_16px_1.png"));
             txtXacNhan336.setEchoChar('*');
-        }
     }//GEN-LAST:event_Tbtnhienthi2ActionPerformed
 
     private void Tbtnhienthi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tbtnhienthi1ActionPerformed
-        
         if(Tbtnhienthi1.isSelected()){
             txtMatKhau336.setEchoChar((char)0);
-            Tbtnhienthi1.setIcon(new ImageIcon("src\\icons\\icons8_invisible_16px_2_1.png"));
-            
-        }else{
+        }else
             txtMatKhau336.setEchoChar('*');
-             Tbtnhienthi1.setIcon(new ImageIcon("src\\icons\\icons8_eye_16px_1.png"));
-            
-        }
     }//GEN-LAST:event_Tbtnhienthi1ActionPerformed
 
     private void txtHoten336ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHoten336ActionPerformed
@@ -1074,6 +1060,14 @@ Account acc ;
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(DangKiTK336.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
