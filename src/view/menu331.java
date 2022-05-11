@@ -5,6 +5,10 @@
  */
 package view;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author ADMIN
@@ -16,6 +20,7 @@ public class menu331 extends javax.swing.JFrame {
      */
     public menu331() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -80,6 +85,11 @@ public class menu331 extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 0, 204));
         jButton1.setText("Chuyển tiền");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setBackground(new java.awt.Color(204, 255, 255));
         jButton2.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
@@ -95,11 +105,21 @@ public class menu331 extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 0, 204));
         jButton3.setText("Xem số dư");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setBackground(new java.awt.Color(204, 255, 255));
         jButton4.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 0, 204));
         jButton4.setText("Xem và cập nhật thông tin");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setBackground(new java.awt.Color(255, 0, 0));
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -115,11 +135,21 @@ public class menu331 extends javax.swing.JFrame {
         jButton6.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         jButton6.setForeground(new java.awt.Color(255, 0, 204));
         jButton6.setText("Đổi mật khẩu");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setBackground(new java.awt.Color(204, 255, 255));
         jButton7.setFont(new java.awt.Font("Tahoma", 3, 14)); // NOI18N
         jButton7.setForeground(new java.awt.Color(255, 0, 204));
-        jButton7.setText("Xóa tài khoản");
+        jButton7.setText("Khóa tài khoản");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -197,12 +227,57 @@ public class menu331 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        login331 lg =new login331();
+        lg.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        try {
+            XemLichSu336 xemls = new XemLichSu336();
+            xemls.setVisible(true);
+            this.setVisible(false);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(menu331.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        chuyenKhoan311 ck = new chuyenKhoan311();
+        ck.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        login331 lg =new  login331();
+        lg.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        try {
+            viewSoDu336 xemsd =new viewSoDu336();
+            xemsd.setVisible(true);
+            this.setVisible(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(menu331.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        XemVaCapNhatTK309 xcn = new XemVaCapNhatTK309();
+        xcn.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        DoiMatKhau347 dmk = new DoiMatKhau347();
+        dmk.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments

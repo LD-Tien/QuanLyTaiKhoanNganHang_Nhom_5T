@@ -947,7 +947,7 @@ Account acc ;
     private void btnThoatdialogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoatdialogActionPerformed
        
         dangkidialog.setVisible(false);
-        this.setVisible(true);
+        new menu331().setVisible(true);
     }//GEN-LAST:event_btnThoatdialogActionPerformed
 
     private void dangkidialogAncestorResized(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_dangkidialogAncestorResized

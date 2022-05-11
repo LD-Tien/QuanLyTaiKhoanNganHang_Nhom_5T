@@ -1,6 +1,6 @@
 package view;
 
-import edu.poly.atmjavanc.view.DangKiTK336;
+import view.DangKiTK336;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -31,6 +31,7 @@ public class MoDau309 extends javax.swing.JFrame {
 
     public MoDau309() {
         initComponents();
+        setLocationRelativeTo(null);
         ImageIcon image = new ImageIcon("src\\Icons\\LogoVietinBank.png");
         ImageIcon icon = new ImageIcon(image.getImage().getScaledInstance(logoLabel309.getWidth(), logoLabel309.getHeight(), Image.SCALE_SMOOTH));
         logoLabel309.setIcon(icon);
@@ -243,11 +244,15 @@ public class MoDau309 extends javax.swing.JFrame {
     }//GEN-LAST:event_signInButtonMouseExited
 
     private void signInButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signInButtonMouseClicked
-        // TODO add your handling code here:
+        login331 lg = new login331();
+        lg.setVisible(true);
+        this. setVisible(false);
     }//GEN-LAST:event_signInButtonMouseClicked
 
     private void signUpButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signUpButtonMouseClicked
-        // TODO add your handling code here:
+        DangKiTK336 dk = new DangKiTK336();
+        dk.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_signUpButtonMouseClicked
 
     /**

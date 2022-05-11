@@ -136,6 +136,7 @@ public static  String MaThe="1234";
 
         btntrove336.setBackground(new java.awt.Color(255, 255, 255));
         btntrove336.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btntrove336.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/trove.png"))); // NOI18N
         btntrove336.setText("Trở về");
         btntrove336.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,6 +146,7 @@ public static  String MaThe="1234";
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/delete-Error-icon.png"))); // NOI18N
         jButton1.setText("Thoát");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,7 +208,9 @@ public static  String MaThe="1234";
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btntrove336ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntrove336ActionPerformed
-        System.exit(0);
+        menu331 menu = new menu331();
+        menu.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btntrove336ActionPerformed
 
     /**

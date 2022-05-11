@@ -30,6 +30,7 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
         acc309 = accServices309.getAccountByMaThe309(maThe);
         fileName309 = null;
         initComponents();
+        setLocationRelativeTo(null);
         initComboBox309();
         setDataUpdateFrame();
         ImageIcon icon = new ImageIcon(new ImageIcon("src\\Icons\\LogoVietinBank2.png").getImage().getScaledInstance(logoLabel309.getWidth(), logoLabel309.getHeight(), Image.SCALE_SMOOTH));
@@ -37,7 +38,10 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
     }
 
     XemVaCapNhatTK309() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        initComponents();
+        setLocationRelativeTo(null);
+        ImageIcon icon = new ImageIcon(new ImageIcon("src\\Icons\\LogoVietinBank2.png").getImage().getScaledInstance(logoLabel309.getWidth(), logoLabel309.getHeight(), Image.SCALE_SMOOTH));
+        logoLabel309.setIcon(icon);
     }
 
     // Khởi tạo dữ liệu ngày/tháng/năm cho các comboBox tương ứng
@@ -666,7 +670,9 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
 
     private void backButton309ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButton309ActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
+        new menu331().setVisible(true);
+        
+        this.setVisible(false);
     }//GEN-LAST:event_backButton309ActionPerformed
 
     private void nameTextField309ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextField309ActionPerformed
@@ -677,7 +683,7 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (visiblePasswordButton309.isSelected()) {
             visiblePasswordButton309.setIcon(new ImageIcon("src\\icons\\icons8_eye_16px_1.png"));
-            PasswordField309.setEchoChar((char)0);
+            PasswordField309.setEchoChar((char) 0);
         } else {
             visiblePasswordButton309.setIcon(new ImageIcon("src\\icons\\icons8_invisible_16px_2.png"));
             PasswordField309.setEchoChar('*');
@@ -721,11 +727,12 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                try {
-                    new XemVaCapNhatTK309("100000000013").setVisible(true);
-                } catch (SQLException ex) {
-                    Logger.getLogger(XemVaCapNhatTK309.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                new XemVaCapNhatTK309().setVisible(true);
+//                try {
+//                    new XemVaCapNhatTK309("100000000013").setVisible(true);
+//                } catch (SQLException ex) {
+//                    Logger.getLogger(XemVaCapNhatTK309.class.getName()).log(Level.SEVERE, null, ex);
+//                }
             }
         });
     }

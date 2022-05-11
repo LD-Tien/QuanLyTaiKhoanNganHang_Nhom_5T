@@ -96,14 +96,14 @@ public static  String MaThe336="100000000014";
         btnThoat.setBackground(new java.awt.Color(255, 255, 0));
         btnThoat.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnThoat.setForeground(new java.awt.Color(0, 102, 255));
-        btnThoat.setText("Thoát");
+        btnThoat.setText("Quay về");
         btnThoat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnThoatActionPerformed(evt);
             }
         });
         jPanel5.add(btnThoat);
-        btnThoat.setBounds(90, 240, 67, 34);
+        btnThoat.setBounds(90, 240, 90, 34);
 
         btnShowtK.setBackground(new java.awt.Color(255, 255, 0));
         btnShowtK.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -160,13 +160,16 @@ public static  String MaThe336="100000000014";
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnThoatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoatActionPerformed
+        menu331 menu = new menu331();
+        menu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnThoatActionPerformed
 
     private void btnShowtKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowtKActionPerformed
-        XemVaCapNhatTK309 xct = new XemVaCapNhatTK309();
-        xct.setVisible(true);
+      XemVaCapNhatTK309 xcn = new XemVaCapNhatTK309();
+        xcn.setVisible(true);
         this.setVisible(false);
+        
     }//GEN-LAST:event_btnShowtKActionPerformed
 
     /**

@@ -19,6 +19,7 @@ public class chuyenNoiBo311 extends javax.swing.JFrame {
      */
     public chuyenNoiBo311() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -53,7 +54,7 @@ public class chuyenNoiBo311 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/viettin.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/viettin.png"))); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(7, 63, 201));

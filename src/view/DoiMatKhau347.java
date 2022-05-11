@@ -5,7 +5,7 @@
 package view;
 
 import javax.swing.JOptionPane;
-import taogiaodien.manhinhlogin;
+
 
 /**
  *
@@ -17,6 +17,7 @@ public class DoiMatKhau347 extends javax.swing.JFrame {
      */
     public DoiMatKhau347() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -281,7 +282,7 @@ public class DoiMatKhau347 extends javax.swing.JFrame {
 
     private void quayLaiBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quayLaiBtnActionPerformed
         // TODO add your handling code here:
-        manhhinhmenu frame = new manhhinhmenu();
+        menu331 frame = new menu331();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_quayLaiBtnActionPerformed
