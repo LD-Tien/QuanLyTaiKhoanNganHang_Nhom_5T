@@ -43,7 +43,11 @@ public class chuyenKhoan311 extends javax.swing.JFrame {
         setBackground(new java.awt.Color(0, 102, 255));
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+<<<<<<< HEAD
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/viettin.png"))); // NOI18N
+=======
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/LogoVietinBank.png"))); // NOI18N
+>>>>>>> 317d009de57c6a63f989956fd9118e56c1ac2214
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -58,7 +62,6 @@ public class chuyenKhoan311 extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 255));
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Chuyển tiền nội bộ");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,7 +69,6 @@ public class chuyenKhoan311 extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Chuyển ngoài VietinBank");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,7 +115,7 @@ public class chuyenKhoan311 extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setBackground(new java.awt.Color(0, 102, 255));
+        jLabel1.setBackground(new java.awt.Color(204, 204, 255));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("CHUYỂN TIỀN");
@@ -164,6 +166,7 @@ public class chuyenKhoan311 extends javax.swing.JFrame {
         chuyenNgoai311 cn = new chuyenNgoai311();
         cn.setVisible(true);
         this.setVisible(false);
+   
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -199,10 +202,8 @@ public class chuyenKhoan311 extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new chuyenKhoan311().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new chuyenKhoan311().setVisible(true);
         });
     }
 

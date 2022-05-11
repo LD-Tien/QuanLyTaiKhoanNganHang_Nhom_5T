@@ -249,7 +249,11 @@ public class MoKhoaTK347 extends javax.swing.JFrame {
 
     private void quayLaiBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quayLaiBtnActionPerformed
         // TODO add your handling code here:
+<<<<<<< HEAD
         login331 frame = new login331();
+=======
+        menu331 frame = new menu331();
+>>>>>>> 317d009de57c6a63f989956fd9118e56c1ac2214
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_quayLaiBtnActionPerformed

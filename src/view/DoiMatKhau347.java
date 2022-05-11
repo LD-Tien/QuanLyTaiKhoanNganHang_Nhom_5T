@@ -5,7 +5,10 @@
 package view;
 
 import javax.swing.JOptionPane;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 317d009de57c6a63f989956fd9118e56c1ac2214
 
 /**
  *

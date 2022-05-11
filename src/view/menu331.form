@@ -60,6 +60,7 @@
                                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                                   <Component id="jButton6" min="-2" pref="145" max="-2" attributes="0"/>
                               </Group>
+<<<<<<< HEAD
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -75,6 +76,9 @@
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
+=======
+                              <Component id="jButton3" alignment="0" min="-2" pref="130" max="-2" attributes="0"/>
+>>>>>>> 317d009de57c6a63f989956fd9118e56c1ac2214
                           </Group>
                       </Group>
                   </Group>
