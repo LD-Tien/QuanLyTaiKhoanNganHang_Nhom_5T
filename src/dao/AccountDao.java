@@ -48,4 +48,28 @@ public class AccountDao {
         ps309.setString(11, acc309.getMaThe());
         ps309.executeUpdate();
     }
+    
+    public boolean DangKi336 (Account Acc) throws Exception{
+             
+        String sql ="set dateformat dmy  insert into Account (Matkhau,Tendangnhap,HoTen,CMND,SDT,Email,DiaChi,gioitinh,ngaysinh,Anh) values(?,?,?,?,?,?,?,?,?,?)";
+        try(
+            Connection con =databasehelper.opConnection();
+            PreparedStatement pstmt= con.prepareStatement(sql);
+            ){
+        pstmt.setString(1,Acc.getMaKhau());
+        pstmt.setString(2,Acc.getTenDangNhap());
+        pstmt.setString(3,Acc.getHoTen());
+        pstmt.setString(4,Acc.getCmnd());
+        pstmt.setString(5,Acc.getSdt());
+        pstmt.setString(6,Acc.getEmail());
+        pstmt.setString(7,Acc.getDiaChi());
+        pstmt.setString(8,Acc.getGioiTinh());
+        pstmt.setString(9,Acc.getNgaySinh());
+        pstmt.setBytes(10, Acc.getAnh());
+       
+       
+        return pstmt.executeUpdate()>0;
+        }
+
+    }   
 }

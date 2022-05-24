@@ -5,6 +5,7 @@
 package view;
 
 //import edu.poly.atmjavanc.helper.databasehelper;
+import dao.databasehelper;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -27,50 +28,50 @@ public static  String MaThe="1234";
     public XemLichSu336() throws SQLException {
         initComponents();
         setLocationRelativeTo(null);
-        //Showdatabase(MaThe); 
+        Showdatabase(MaThe); 
    }
-//      private void ShowAnh() throws SQLException{
-//          Connection con =databasehelper.opConnection();
-//          String sql ="select * from Account where MaThe = ?";
-//           PreparedStatement pstmt= con.prepareStatement(sql);
-//           
-//            pstmt.setString(1, MaThe);
-//            ResultSet rs =   pstmt.executeQuery();
-//            while(rs.next()){
-//                
-//            }
-//      }
-// private void Showdatabase(String SoTK) throws SQLException{
-//        try {
-//            tbxemlichsu336.removeAll();
-//             DefaultTableModel defaultTableModel = new DefaultTableModel();
-//            defaultTableModel.setColumnIdentifiers(new String[]{"Mã Giao Dịch","Tk Chuyển","ngày","Nội Dung","Số Tiền","Tk nhận","Ngân Hàng Nhận"});
-//            tbxemlichsu336.setModel(defaultTableModel);
-//            Connection con =databasehelper.opConnection();
-//            String sql ="select MaChuyen,SoTKChuyen,NgayChuyen as ck, NoiDung,SoTien,SoTKNhan,TenNganHangDen from ChuyenKhoan where SoTKChuyen=? order by ck desc";
-//
-//            PreparedStatement pstmt= con.prepareStatement(sql);
-//           
-//            pstmt.setString(1, SoTK);
-//            ResultSet rs =   pstmt.executeQuery();
-//            
-//            while(rs.next()){
-//                Vector vt =new Vector();
-//                vt.add(rs.getString("MaChuyen"));
-//                vt.add(rs.getString("SoTKChuyen"));
-//                vt.add(rs.getTimestamp("ck"));
-//                vt.add(rs.getString("NoiDung"));
-//                vt.add(rs.getDouble("SoTien"));
-//                vt.add(rs.getString("SoTKNhan"));
-//                vt.add(rs.getString("TenNganHangDen"));
-//                defaultTableModel.addRow(vt);
-//
-//            }
-//            tbxemlichsu336.setModel(defaultTableModel);
-//        } catch (Exception e) {
-//        }
-//        
-//    }
+   private void ShowAnh() throws SQLException{
+          Connection con =databasehelper.opConnection();
+          String sql ="select * from Account where MaThe = ?";
+           PreparedStatement pstmt= con.prepareStatement(sql);
+           
+            pstmt.setString(1, MaThe);
+            ResultSet rs =   pstmt.executeQuery();
+            while(rs.next()){
+                
+            }
+      }
+ private void Showdatabase(String SoTK) throws SQLException{
+        try {
+            tbxemlichsu336.removeAll();
+             DefaultTableModel defaultTableModel = new DefaultTableModel();
+            defaultTableModel.setColumnIdentifiers(new String[]{"Mã Giao Dịch","Tk Chuyển","ngày","Nội Dung","Số Tiền","Tk nhận","Ngân Hàng Nhận"});
+            tbxemlichsu336.setModel(defaultTableModel);
+            Connection con =databasehelper.opConnection();
+            String sql ="select MaChuyen,SoTKChuyen,NgayChuyen as ck, NoiDung,SoTien,SoTKNhan,TenNganHangDen from ChuyenKhoan where SoTKChuyen=? order by ck desc";
+
+            PreparedStatement pstmt= con.prepareStatement(sql);
+           
+            pstmt.setString(1, SoTK);
+            ResultSet rs =   pstmt.executeQuery();
+            
+            while(rs.next()){
+                Vector vt =new Vector();
+                vt.add(rs.getString("MaChuyen"));
+                vt.add(rs.getString("SoTKChuyen"));
+                vt.add(rs.getTimestamp("ck"));
+                vt.add(rs.getString("NoiDung"));
+                vt.add(rs.getDouble("SoTien"));
+                vt.add(rs.getString("SoTKNhan"));
+                vt.add(rs.getString("TenNganHangDen"));
+                defaultTableModel.addRow(vt);
+
+            }
+            tbxemlichsu336.setModel(defaultTableModel);
+        } catch (Exception e) {
+        }
+        
+    }
   
     /**
      * This method is called from within the constructor to initialize the form.
@@ -102,11 +103,13 @@ public static  String MaThe="1234";
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 764, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 743, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 8, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(0, 102, 255));
@@ -173,9 +176,9 @@ public static  String MaThe="1234";
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btntrove336)
                     .addComponent(jButton1))
@@ -188,6 +191,7 @@ public static  String MaThe="1234";
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
