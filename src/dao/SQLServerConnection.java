@@ -11,7 +11,7 @@ public class SQLServerConnection {
     public static Connection getSQLServerConnection(){
         String connectionURL = "jdbc:jtds:sqlserver://localhost:1433/NganHangJavanc";
         String userName = "sa";
-        String password = "12345sa";
+        String password = "12345";
         
         try {
             Class.forName("net.sourceforge.jtds.jdbc.Driver");

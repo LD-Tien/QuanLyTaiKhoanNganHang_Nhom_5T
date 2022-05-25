@@ -1,16 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
 package view;
-
-import nganhang1.*;
 
 /**
  *
- * @author Tien
+ * @author LÊ VĂN THẮNG
  */
 public class ChuyenNoiBo311 extends javax.swing.JFrame {
 
@@ -48,7 +44,7 @@ public class ChuyenNoiBo311 extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/LogoVietinBank.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/viettin.png"))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 255));
@@ -73,6 +69,7 @@ public class ChuyenNoiBo311 extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(0, 102, 255));
 
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Nội dung chuyển tiền:");
 
@@ -82,6 +79,7 @@ public class ChuyenNoiBo311 extends javax.swing.JFrame {
             }
         });
 
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Số tài khoản người thụ hưởng:\n");
 
@@ -91,6 +89,7 @@ public class ChuyenNoiBo311 extends javax.swing.JFrame {
             }
         });
 
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Số tiền Chuyển:");
 
@@ -191,7 +190,7 @@ public class ChuyenNoiBo311 extends javax.swing.JFrame {
 
     private void btQuayLaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btQuayLaiActionPerformed
         // TODO add your handling code here:
-        ChuyenTien311 ct = new ChuyenTien311();
+        ChuyenTien331 ct = new ChuyenTien331();
         ct.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btQuayLaiActionPerformed
@@ -221,6 +220,9 @@ public class ChuyenNoiBo311 extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(ChuyenNoiBo311.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

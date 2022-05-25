@@ -1,4 +1,4 @@
-package view;
+package newpackage;
 
 import view.DangKiTK336;
 import java.awt.Color;
@@ -9,6 +9,7 @@ import java.awt.geom.RoundRectangle2D;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import org.w3c.dom.css.RGBColor;
+import view.login331;
 
 public class MoDau309 extends javax.swing.JFrame {
 
@@ -280,6 +281,10 @@ public class MoDau309 extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MoDau309.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>

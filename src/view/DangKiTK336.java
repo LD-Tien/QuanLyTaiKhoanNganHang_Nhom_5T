@@ -9,6 +9,7 @@ package view;
 //import edu.poly.atmjavanc.helper.databasehelper;
 //import static edu.poly.atmjavanc.view.viewSoDu336.MaThe336;
 import dao.AccountDao;
+import dao.SQLServerConnection;
 import java.awt.Color;
 import java.awt.Image;
 import java.io.ByteArrayOutputStream;
@@ -863,77 +864,77 @@ Account acc ;
     }//GEN-LAST:event_btnThoat336ActionPerformed
 
     private void btnDangKi336ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangKi336ActionPerformed
-//        StringBuilder sb= new StringBuilder();
-//       if(txtHoten336.getText().equals("") ||txtCMND336.getText().equals("")||txtEmail336.getText().equals("")
-//               ||txtMatKhau336.getText().equals("")||txtTenDN336.getText().equals("")||txtXacNhan336.getText().equals("")){
-//           sb.append("Cần Nhập Đầy Đủ thông tin không được dể trống");
-//       }
-//        if(sb.length()>0){
-//           JOptionPane.showMessageDialog(this, sb);
-//           return;
-//       }
+        StringBuilder sb= new StringBuilder();
+       if(txtHoten336.getText().equals("") ||txtCMND336.getText().equals("")||txtEmail336.getText().equals("")
+               ||txtMatKhau336.getText().equals("")||txtTenDN336.getText().equals("")||txtXacNhan336.getText().equals("")){
+           sb.append("Cần Nhập Đầy Đủ thông tin không được dể trống");
+       }
+        if(sb.length()>0){
+           JOptionPane.showMessageDialog(this, sb);
+           return;
+       }
         
-//       try {
-//            
-//            
-//            acc.setMaKhau(txtMatKhau336.getText());
-//            acc.setTenDangNhap(txtTenDN336.getText());
-//            acc.setHoTen(txtHoten336.getText());
-//            acc.setCmnd(txtCMND336.getText());
-//            acc.setSdt(txtSDT336.getText());
-//            acc.setEmail(txtEmail336.getText());
-//             acc.setDiaChi(txtDiachi336.getText());
-//              if(radioNam336.isSelected())
-//                  acc.setGioiTinh(radioNam336.getText());
-//              else
-//                  if(radioNu336.isSelected())
-//                  acc.setGioiTinh(radioNu336.getText());
-//                   else
-//                      if(radioKhac336.isSelected())
-//                        acc.setGioiTinh(radioKhac336.getText());
-//              acc.setNgaySinh(cbBngay336.getSelectedItem()+"/"+cbBthang336.getSelectedItem()+"/"+comboboxNamSinh.getSelectedItem());
-//              
-//       
-////acc.setAnh(bos.toByteArray());
-//           
-//             AccountDao accdao = new AccountDao();
-//            accdao.DangKi336(acc);
-//            
-//            JOptionPane.showMessageDialog(this, "tài liêu đã đc lưu");
-//            
-//            
-//            String sql ="SELECT * FROM Account where Email = ? ";
-//        try(
-//            Connection con =databasehelper.opConnection();
-//            PreparedStatement pstmt= con.prepareStatement(sql);
-//             ){
-//            pstmt.setString(1, txtEmail336.getText());
-//            ResultSet rs = pstmt.executeQuery();
-//            if(rs.next()){
-//                TxtshowTenDN.setText(rs.getString("Tendangnhap"));
-//                txtshowCMND.setText(rs.getString("CMND"));
-//                txtshowDiaChi.setText(rs.getString("DiaChi"));
-//                txtshowEmail.setText(rs.getString("Email"));
-//                txtshowHoTen.setText(rs.getString("HoTen"));
-//                txtshowMaPin.setText(rs.getString("Matkhau"));
-//                txtshowSDT.setText(rs.getString("SDT"));
-//                txtshowSoDu.setText(rs.getString("SoDu"));
-//                txtshowSoTK.setText(rs.getString("MaThe"));
-//                txtshowgioitinh.setText(rs.getString("gioitinh"));
-//                txtshowngaysinh336.setText(rs.getString("ngaysinh"));
-//                 
-//            }
+       try {
+            
+            
+            acc.setMaKhau(txtMatKhau336.getText());
+            acc.setTenDangNhap(txtTenDN336.getText());
+            acc.setHoTen(txtHoten336.getText());
+            acc.setCmnd(txtCMND336.getText());
+            acc.setSdt(txtSDT336.getText());
+            acc.setEmail(txtEmail336.getText());
+             acc.setDiaChi(txtDiachi336.getText());
+              if(radioNam336.isSelected())
+                  acc.setGioiTinh(radioNam336.getText());
+              else
+                  if(radioNu336.isSelected())
+                  acc.setGioiTinh(radioNu336.getText());
+                   else
+                      if(radioKhac336.isSelected())
+                        acc.setGioiTinh(radioKhac336.getText());
+              acc.setNgaySinh(cbBngay336.getSelectedItem()+"/"+cbBthang336.getSelectedItem()+"/"+comboboxNamSinh.getSelectedItem());
+              
+       
+//              acc.setAnh(bos.toByteArray());
+           
+             AccountDao accdao = new AccountDao();
+            accdao.DangKi336(acc);
+            
+            JOptionPane.showMessageDialog(this, "tài liêu đã đc lưu");
+            
+            
+            String sql ="SELECT * FROM Account where Email = ? ";
+        try(
+            Connection con =SQLServerConnection .getSQLServerConnection();
+            PreparedStatement pstmt= con.prepareStatement(sql);
+             ){
+            pstmt.setString(1, txtEmail336.getText());
+            ResultSet rs = pstmt.executeQuery();
+            if(rs.next()){
+                TxtshowTenDN.setText(rs.getString("Tendangnhap"));
+                txtshowCMND.setText(rs.getString("CMND"));
+                txtshowDiaChi.setText(rs.getString("DiaChi"));
+                txtshowEmail.setText(rs.getString("Email"));
+                txtshowHoTen.setText(rs.getString("HoTen"));
+                txtshowMaPin.setText(rs.getString("Matkhau"));
+                txtshowSDT.setText(rs.getString("SDT"));
+                txtshowSoDu.setText(rs.getString("SoDu"));
+                txtshowSoTK.setText(rs.getString("MaThe"));
+                txtshowgioitinh.setText(rs.getString("gioitinh"));
+                txtshowngaysinh336.setText(rs.getString("ngaysinh"));
+                 
+            }
                 this.setVisible(false);
                 dangkidialog.setVisible(true);
-//                
-//        } catch (SQLException ex) {
-//        }
-//
-//            
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(this, "Errol " +e.getMessage());
-//            e.printStackTrace();
-//        }
+                
+        } catch (SQLException ex) {
+        }
+
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Errol " +e.getMessage());
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_btnDangKi336ActionPerformed
 
     private void txtshowMaPinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtshowMaPinActionPerformed
@@ -1063,7 +1064,7 @@ Account acc ;
     }//GEN-LAST:event_txtHoten336ActionPerformed
 
     private void btntrove336ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntrove336ActionPerformed
-     MoDau309 md = new MoDau309();
+     login331 md = new login331();
      md.setVisible(true);
      this.setVisible(false);
     }//GEN-LAST:event_btntrove336ActionPerformed
@@ -1093,6 +1094,14 @@ Account acc ;
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(DangKiTK336.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>

@@ -18,6 +18,7 @@ public class menu331 extends javax.swing.JFrame {
     /**
      * Creates new form menu331
      */
+    
     public menu331() {
         initComponents();
         setLocationRelativeTo(null);
@@ -245,7 +246,7 @@ public class menu331 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        chuyenKhoan311 ck = new chuyenKhoan311();
+        ChuyenTien331 ck = new  ChuyenTien331();
         ck.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -268,9 +269,15 @@ public class menu331 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        XemVaCapNhatTK309 xcn = new XemVaCapNhatTK309();
-        xcn.setVisible(true);
-        this.setVisible(false);
+        XemVaCapNhatTK309 xcn;
+        try {
+            xcn = new XemVaCapNhatTK309("100000000014");
+            xcn.setVisible(true);
+            this.setVisible(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(menu331.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -304,6 +311,9 @@ public class menu331 extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(menu331.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

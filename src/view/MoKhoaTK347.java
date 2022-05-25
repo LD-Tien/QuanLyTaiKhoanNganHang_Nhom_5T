@@ -5,6 +5,9 @@
 package view;
 
 import javax.swing.JOptionPane;
+import view.login331;
+
+
 /**
  *
  * @author LENOVO
@@ -247,7 +250,10 @@ public class MoKhoaTK347 extends javax.swing.JFrame {
 
     private void quayLaiBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quayLaiBtnActionPerformed
         // TODO add your handling code here:
+
         login331 frame = new login331();
+
+
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_quayLaiBtnActionPerformed
@@ -284,6 +290,7 @@ public class MoKhoaTK347 extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MoKhoaTK347.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
