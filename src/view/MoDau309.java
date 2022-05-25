@@ -1,4 +1,4 @@
-package newpackage;
+package view;
 
 import view.DangKiTK336;
 import java.awt.Color;
