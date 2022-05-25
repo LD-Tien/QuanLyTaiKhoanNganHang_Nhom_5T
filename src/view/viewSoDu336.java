@@ -28,10 +28,11 @@ public static  String MaThe336="100000000014";
         Showdatabase(MaThe336);
     }
 private void Showdatabase(String Mathe336) throws SQLException{
-String sql ="SELECT * FROM Account where MaThe = ? ";
+        String sql = "SELECT * FROM Account where MaThe = ? ";
         try(
-            Connection con1 =databasehelper.opConnection();
-            PreparedStatement pstmt= con1.prepareStatement(sql);
+                 
+                Connection con =databasehelper.opConnection();
+                PreparedStatement pstmt= con.prepareStatement(sql);
              ){
             pstmt.setString(1, MaThe336);
             ResultSet rs = pstmt.executeQuery();
@@ -44,6 +45,8 @@ String sql ="SELECT * FROM Account where MaThe = ? ";
        
         } catch (SQLException ex) {
         }
+        
+        
 }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -130,7 +133,7 @@ String sql ="SELECT * FROM Account where MaThe = ? ";
         lbsotk336.setText("Số Tài Khoản");
         lbsotk336.setName("lbMathe"); // NOI18N
         jPanel5.add(lbsotk336);
-        lbsotk336.setBounds(60, 50, 300, 40);
+        lbsotk336.setBounds(60, 60, 300, 40);
 
         lbsodu336.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         lbsodu336.setForeground(new java.awt.Color(255, 255, 0));

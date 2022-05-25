@@ -1,35 +1,34 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-/**
- *
- * @author LÊ VĂN THẮNG
- */
+import java.sql.DriverManager;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+
 public class databasehelper {
-    public static Connection opConnection() {
-        final String Url = "jdbc:sqlserver://PC1\\SQLEXPRESS\\SQLEXPRESS:1433;databaseName=NganHangJavanc";
-        final String user = "sa";
-        final String pass = "12345";
+    public static Connection opConnection(){
+        String connectionURL = "jdbc:jtds:sqlserver://localhost:1433/NganHangJavanc";
+        String userName = "sa";
+        String password = "12345";
+        
         try {
-            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
-            return DriverManager.getConnection(Url, user, pass);
-        }  catch (ClassNotFoundException | SQLException e) {
+            Class.forName("net.sourceforge.jtds.jdbc.Driver");
+            return DriverManager.getConnection(connectionURL, userName, password);
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(SQLServerConnection.class.getName()).log(Level.SEVERE, null, ex);
         }
-      return null;
-    }
-    public static void main(String[] args) {
-        Connection connection = opConnection();
-       if (connection !=  null){
-           System.out.println("thanh cong");
-           
-       }
-       else 
-            System.out.println("that bai");
+        return null;
+    }    
+        ////  Kiểm tra kêt nối DB
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+        Connection conn = opConnection();
+        
+        System.out.println("Get connection " + conn);
+        if (conn != null)
+            System.out.println("Done!");
+        else
+            System.out.println("Error!");
     }
 }
