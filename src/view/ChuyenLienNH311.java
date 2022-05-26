@@ -15,6 +15,7 @@ public class ChuyenLienNH311 extends javax.swing.JFrame {
      */
     public ChuyenLienNH311() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**

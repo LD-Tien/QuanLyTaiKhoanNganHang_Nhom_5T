@@ -15,6 +15,7 @@ public class ChuyenNoiBo311 extends javax.swing.JFrame {
      */
     public ChuyenNoiBo311() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
