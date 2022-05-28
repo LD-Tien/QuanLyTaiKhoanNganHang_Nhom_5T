@@ -12,6 +12,8 @@ import java.time.Year;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import model.Account;
@@ -31,6 +33,7 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
         fileName309 = null;
         initComponents();
         setLocationRelativeTo(null);
+        setResizable(false);
         initComboBox309();
         setDataUpdateFrame();
         ImageIcon icon = new ImageIcon(new ImageIcon("src\\Icons\\LogoVietinBank2.png").getImage().getScaledInstance(logoLabel309.getWidth(), logoLabel309.getHeight(), Image.SCALE_SMOOTH));
@@ -250,11 +253,11 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(imageLabel309, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+            .addComponent(imageLabel309, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(imageLabel309, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+            .addComponent(imageLabel309, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         deleteImageButton309.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icons/icons8_Delete_16px.png"))); // NOI18N
@@ -333,20 +336,20 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
                             .addComponent(cmndTextField309)
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(maleRadioButton309, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+                                    .addComponent(maleRadioButton309, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(dayComboBox309, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(0, 0, 0)
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(femaleRadioButton309, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                                        .addComponent(femaleRadioButton309, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGap(8, 8, 8)
-                                        .addComponent(gayRadioButton309, javax.swing.GroupLayout.DEFAULT_SIZE, 51, Short.MAX_VALUE)
+                                        .addComponent(gayRadioButton309, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGap(20, 20, 20))
                                     .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addGap(5, 5, 5)
-                                        .addComponent(monthComboBox309, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(7, 7, 7)
+                                        .addComponent(monthComboBox309, 0, 54, Short.MAX_VALUE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(yearComboBox309, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))))
+                                        .addComponent(yearComboBox309, 0, 75, Short.MAX_VALUE))))))))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -373,7 +376,7 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(gayRadioButton309, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(femaleRadioButton309, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
@@ -381,16 +384,14 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                        .addComponent(chooseImageButton309, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
-                        .addGap(70, 70, 70))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(deleteImageButton309))
-                        .addGap(18, 18, Short.MAX_VALUE)))
+                        .addComponent(chooseImageButton309, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(2, 2, 2)
+                        .addComponent(deleteImageButton309))
+                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -405,8 +406,8 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(deleteImageButton309, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(chooseImageButton309))))
-                .addGap(12, 12, 12))
+                            .addComponent(chooseImageButton309, javax.swing.GroupLayout.Alignment.TRAILING))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel4.setBackground(new java.awt.Color(153, 204, 255));
@@ -551,11 +552,11 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
                     .addComponent(logoLabel309, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(backButton309)
-                    .addComponent(updateButton309))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(updateButton309)
+                    .addComponent(backButton309))
                 .addContainerGap())
         );
 
@@ -606,16 +607,16 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
             imageLabel309.setIcon(imageIcon);
             imageLabel309.setText("");
 
-            // Chuyển từ ảnh sang byte[]
+            // Chuyển từ ảnh sang mảng byte và lưu lại
             try {
                 File image = new File(fileName309);
-                FileInputStream fis = new FileInputStream(image);
-                ByteArrayOutputStream bos = new ByteArrayOutputStream();
-                byte[] buf = new byte[1024];
-                for (int readNum; (readNum = fis.read(buf)) != -1;) {
-                    bos.write(buf, 0, readNum);
+                FileInputStream fis = new FileInputStream(image); // đọc file dưới dạng chuỗi byte
+                ByteArrayOutputStream baos = new ByteArrayOutputStream(); // ByteArrayOutputStream được sử dụng để ghi các bytes vào 1 mảng byte
+                byte[] bytes = new byte[1024];
+                for (int readNum; (readNum = fis.read(bytes)) != -1;) { //Đọc toàn bộ nội dung file
+                    baos.write(bytes, 0, readNum); 
                 }
-                acc309.setAnh(bos.toByteArray());
+                acc309.setAnh(baos.toByteArray());
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(XemVaCapNhatTK309.class.getName()).log(Level.SEVERE, null, ex);
             } catch (IOException ex) {
@@ -636,11 +637,84 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
 
     private void updateButton309ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButton309ActionPerformed
         // TODO add your handling code here:
+        //XỬ LÝ LỖI NHẬP DỮ LIỆU
+        if (nameTextField309.getText().equals("")) {// họ tên
+            JOptionPane.showMessageDialog(this, "Bạn chưa nhập họ tên!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            nameTextField309.requestFocus();
+            return;
+        }
+        if (cmndTextField309.getText().equals("")) { //CMND/CCCD
+            JOptionPane.showMessageDialog(this, "Bạn chưa nhập CMND/CCCD!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            cmndTextField309.requestFocus();
+            return;
+        }
+
+        try { // CMND/CCCD không phải số nguyên thì in ra lỗi.
+            Long.parseLong(cmndTextField309.getText());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Chỉ nhập được nhập số", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            cmndTextField309.requestFocus();
+            return;
+        }
+        
+        if(cmndTextField309.getText().length() != 12 && cmndTextField309.getText().length() != 9) { // kiểm tra độ dài cmnd/cccd
+            JOptionPane.showMessageDialog(this, "Nhập thừa hoặc thiếu số CMND/CCCD!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            cmndTextField309.requestFocus();
+            return;
+        }
+        if (phoneNumberTextField309.getText().equals("")) {// SĐT
+            JOptionPane.showMessageDialog(this, "Bạn chưa nhập SĐT!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            phoneNumberTextField309.requestFocus();
+            return;
+        }
+        
+        try { // SĐT không phải số nguyên thì in ra lỗi.
+            Long.parseLong(phoneNumberTextField309.getText());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Chỉ nhập số!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            phoneNumberTextField309.requestFocus();
+            return;
+        }
+        
+        if(phoneNumberTextField309.getText().length() != 10 && phoneNumberTextField309.getText().length() != 11) { // kiểm tra độ dài sđt
+            JOptionPane.showMessageDialog(this, "Nhập thừa hoặc thiếu số SĐT!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            phoneNumberTextField309.requestFocus();
+            return;
+        }
+        if (emailTextField309.getText().equals("")) { // email
+            JOptionPane.showMessageDialog(this, "Bạn chưa nhập Email!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            emailTextField309.requestFocus();
+            return;
+        }
+        
+        // kiểm tra gmail
+        String regex = "^(.+)@gmail.com"; //chuỗi đứng trước ký tự @ không có ký tự "." "+"
+        Pattern pattern = Pattern.compile(regex); 
+        Matcher matcher = pattern.matcher(emailTextField309.getText());
+        if(!matcher.matches()) {
+            JOptionPane.showMessageDialog(this, "Nhập sai Email!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            emailTextField309.requestFocus();
+            return;
+        }
+        
+        if (addressTextField309.getText().equals("")) { // địa chỉ
+            JOptionPane.showMessageDialog(this, "Bạn chưa nhập địa chỉ!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            addressTextField309.requestFocus();
+            return;
+        }
+        if (userNameTextField309.getText().equals("")) { // username
+            JOptionPane.showMessageDialog(this, "Bạn chưa nhập tên đăng nhập!", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            userNameTextField309.requestFocus();
+            return;
+        }
+        // Kết thúc sử lý lỗi nhập dữ liệu
+        
+        // Xác nhận
         int ret = JOptionPane.showConfirmDialog(this, "Bạn có muốn cập nhật không?", "Confirm", JOptionPane.YES_NO_OPTION);
         if (ret != JOptionPane.YES_OPTION) {
             return;
         }
-
+        // Lấy dữ liệu từ form và cập nhật
         try {
             acc309.setHoTen(nameTextField309.getText());
             acc309.setCmnd(cmndTextField309.getText());
@@ -661,8 +735,11 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
             acc309.setMaThe(maTheTextField309.getText());
             acc309.setTenDangNhap(userNameTextField309.getText());
             acc309.setMaKhau(String.valueOf(PasswordField309.getPassword()));
-            accServices309.UpdateAccount309(acc309);
-            JOptionPane.showMessageDialog(this, "Tài khoản đã được cập nhật");
+            if (accServices309.UpdateAccount309(acc309)) {
+                JOptionPane.showMessageDialog(this, "Cập nhật thành công!");
+            } else {
+                JOptionPane.showMessageDialog(this, "Cập nhật thất bại", "Lỗi", JOptionPane.ERROR_MESSAGE);
+            }
         } catch (SQLException ex) {
             Logger.getLogger(XemVaCapNhatTK309.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -671,7 +748,7 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
     private void backButton309ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButton309ActionPerformed
         // TODO add your handling code here:
         new menu331().setVisible(true);
-        
+
         this.setVisible(false);
     }//GEN-LAST:event_backButton309ActionPerformed
 
@@ -735,12 +812,12 @@ public class XemVaCapNhatTK309 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new XemVaCapNhatTK309().setVisible(true);
-//                try {
-//                    new XemVaCapNhatTK309("100000000013").setVisible(true);
-//                } catch (SQLException ex) {
-//                    Logger.getLogger(XemVaCapNhatTK309.class.getName()).log(Level.SEVERE, null, ex);
-//                }
+//                new XemVaCapNhatTK309().setVisible(true);
+                try {
+                    new XemVaCapNhatTK309("100000000013").setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(XemVaCapNhatTK309.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
