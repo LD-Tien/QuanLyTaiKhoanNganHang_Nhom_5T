@@ -11,9 +11,9 @@ public class AccountServices {
         return dao309.getAccountByMaThe309(maThe309);
     }
     
-    public void UpdateAccount309(Account acc309) throws SQLException {
+    public boolean UpdateAccount309(Account acc309) throws SQLException {
         AccountDao dao309 = new AccountDao();
-        dao309.UpdateAccount309(acc309);
+        return dao309.UpdateAccount309(acc309);
     }
     
 }
