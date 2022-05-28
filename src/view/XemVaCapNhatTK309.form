@@ -112,12 +112,12 @@
                           <Component id="jLabel1" pref="46" max="32767" attributes="0"/>
                           <Component id="logoLabel309" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="backButton309" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="updateButton309" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <Component id="jPanel1" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="updateButton309" min="-2" max="-2" attributes="0"/>
+                          <Component id="backButton309" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -162,9 +162,9 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="jPanel8" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
@@ -284,20 +284,16 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="chooseImageButton309" pref="56" max="32767" attributes="0"/>
-                                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                                  </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
-                                          <Component id="deleteImageButton309" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="32767" attributes="0"/>
+                                      <Component id="chooseImageButton309" max="32767" attributes="0"/>
+                                      <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
+                                      <Component id="deleteImageButton309" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
                               </Group>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Component id="jPanel5" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -314,11 +310,11 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="deleteImageButton309" max="32767" attributes="0"/>
-                                          <Component id="chooseImageButton309" min="-2" max="-2" attributes="0"/>
+                                          <Component id="chooseImageButton309" alignment="1" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -334,12 +330,12 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="imageLabel309" alignment="1" pref="100" max="32767" attributes="0"/>
+                              <Component id="imageLabel309" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="imageLabel309" alignment="0" pref="130" max="32767" attributes="0"/>
+                              <Component id="imageLabel309" alignment="0" min="-2" pref="108" max="-2" attributes="0"/>
                           </Group>
                         </DimensionLayout>
                       </Layout>
@@ -402,22 +398,22 @@
                                               <Component id="cmndTextField309" alignment="0" max="32767" attributes="0"/>
                                               <Group type="102" attributes="0">
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="maleRadioButton309" pref="51" max="32767" attributes="0"/>
+                                                      <Component id="maleRadioButton309" max="32767" attributes="0"/>
                                                       <Component id="dayComboBox309" max="32767" attributes="0"/>
                                                   </Group>
+                                                  <EmptySpace min="-2" pref="0" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
                                                       <Group type="102" attributes="0">
-                                                          <EmptySpace min="-2" max="-2" attributes="0"/>
-                                                          <Component id="femaleRadioButton309" pref="41" max="32767" attributes="0"/>
+                                                          <Component id="femaleRadioButton309" max="32767" attributes="0"/>
                                                           <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                                                          <Component id="gayRadioButton309" pref="51" max="32767" attributes="0"/>
+                                                          <Component id="gayRadioButton309" max="32767" attributes="0"/>
                                                           <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                                       </Group>
                                                       <Group type="102" attributes="0">
-                                                          <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                                                          <Component id="monthComboBox309" min="-2" pref="50" max="-2" attributes="0"/>
-                                                          <EmptySpace max="-2" attributes="0"/>
-                                                          <Component id="yearComboBox309" max="32767" attributes="0"/>
+                                                          <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                                                          <Component id="monthComboBox309" pref="54" max="32767" attributes="0"/>
+                                                          <EmptySpace min="-2" max="-2" attributes="0"/>
+                                                          <Component id="yearComboBox309" pref="75" max="32767" attributes="0"/>
                                                       </Group>
                                                   </Group>
                                               </Group>
@@ -457,7 +453,7 @@
                                           <Component id="femaleRadioButton309" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="22" max="32767" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
