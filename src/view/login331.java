@@ -5,11 +5,21 @@
  */
 package view;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import model.Account;
+import service.AccountServices;
+
 /**
  *
  * @author ADMIN
  */
 public class login331 extends javax.swing.JFrame {
+
+    private AccountServices accountservices331;
+    private Account acc331;
 
     /**
      * Creates new form login331
@@ -33,11 +43,11 @@ public class login331 extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txttk = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jCheckBox1 = new javax.swing.JCheckBox();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txtmk = new javax.swing.JPasswordField();
         jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -80,7 +90,13 @@ public class login331 extends javax.swing.JFrame {
 
         jCheckBox1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jCheckBox1.setForeground(new java.awt.Color(255, 51, 51));
-        jCheckBox1.setText("Nhớ mật khẩu");
+        jCheckBox1.setSelected(true);
+        jCheckBox1.setText("Hiển thị mật khẩu");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(255, 255, 51));
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -110,16 +126,16 @@ public class login331 extends javax.swing.JFrame {
                         .addGap(73, 73, 73)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(110, 110, 110)
-                        .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(20, 20, 20)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField2)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txttk)
+                            .addComponent(txtmk, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(jCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(154, 154, 154))
         );
         jPanel1Layout.setVerticalGroup(
@@ -132,11 +148,11 @@ public class login331 extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txttk, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtmk, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addComponent(jCheckBox1)
                 .addGap(43, 43, 43)
@@ -164,9 +180,35 @@ public class login331 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    menu331 menu = new menu331();
-    menu.setVisible(true);
-    this.setVisible(false);
+        String userName = txttk.getText();
+        String password = new String(txtmk.getPassword());
+        accountservices331 = new AccountServices();
+        try {
+            acc331 = accountservices331.getAccountByUserName347(userName);
+        } catch (SQLException ex) {
+            Logger.getLogger(login331.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        if (userName.length() == 0) {
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập tên tài khoản", "Loi", JOptionPane.ERROR_MESSAGE);
+        } else if (this.acc331 == null) {
+            JOptionPane.showMessageDialog(this, "Sai thông tin tài khoản", "Loi", JOptionPane.ERROR_MESSAGE);
+        } else {
+            String pass = acc331.getMaKhau();
+            if (password.length() == 0) {
+                JOptionPane.showMessageDialog(this, "Mật khẩu không được để trống!!", "Loi", JOptionPane.ERROR_MESSAGE);
+            } else {
+                if (!pass.equals(password)) {
+                    JOptionPane.showMessageDialog(this, "Sai thông tin mật khẩu", "Loi", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(this, "Dang nhap thanh ", "Chao mung", JOptionPane.INFORMATION_MESSAGE);
+                    menu331 frame = new menu331();
+                    frame.setVisible(true);
+                    this.setVisible(false);
+                }
+
+            }
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -174,7 +216,7 @@ public class login331 extends javax.swing.JFrame {
         DangKiTK336 dk = new DangKiTK336();
         dk.setVisible(true);
         this.setVisible(false);
-        
+
 // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -183,6 +225,14 @@ public class login331 extends javax.swing.JFrame {
         mtk.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        // TODO add your handling code here:
+        if (jCheckBox1.isSelected())
+            txtmk.setEchoChar((char) 0);
+        else
+            txtmk.setEchoChar('*');
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -230,7 +280,7 @@ public class login331 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JPasswordField txtmk;
+    private javax.swing.JTextField txttk;
     // End of variables declaration//GEN-END:variables
 }
