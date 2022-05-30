@@ -4,7 +4,12 @@
  */
 package view;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import model.Account;
+import service.AccountServices;
 import view.login331;
 
 
@@ -13,7 +18,8 @@ import view.login331;
  * @author LENOVO
  */
 public class MoKhoaTK347 extends javax.swing.JFrame {
-
+    private AccountServices accountservices347;
+    private Account acc347;
     /**
      * Creates new form MoKhoaTK
      */
@@ -232,20 +238,46 @@ public class MoKhoaTK347 extends javax.swing.JFrame {
 
     private void moKhoaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moKhoaBtnActionPerformed
         // TODO add your handling code here:
-        String loi = "";
-        String taiKhoan = new String (txttk.getText());
-        String matKhau = new String (txtmk.getPassword());
-        if(taiKhoan.length() == 0){
-            loi += "\n Vui lòng nhập tài khoản";
+        String userName= txttk.getText();
+        String password= new String(txtmk.getPassword());
+        accountservices347=new AccountServices();
+        try {
+            acc347=accountservices347.getAccountByUserName347(userName);
+        } catch (SQLException ex) {
+            Logger.getLogger(MoKhoaTK347.class.getName()).log(Level.SEVERE, null, ex);
         }
-        if(matKhau.length() == 0){
-            loi += "\n Vui lòng nhập mật khẩu";
-        }
-        if (loi.length() != 0) {
-            JOptionPane.showMessageDialog(null, loi);
+        if(userName.length() == 0){
+            JOptionPane.showMessageDialog(this,"Vui lòng nhập tên tài khoản","Loi",JOptionPane.ERROR_MESSAGE);
+        } else if(this.acc347 == null){
+                JOptionPane.showMessageDialog(this,"Sai thông tin tài khoản","Loi",JOptionPane.ERROR_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, "\n Mở khóa thẻ thành công");
-        }
+            String pass=acc347.getMaKhau();
+            Boolean trangthai = acc347.isTrangThai();
+            if(password.length() == 0){
+                JOptionPane.showMessageDialog(this,"Mật khẩu không được để trống!!","Loi",JOptionPane.ERROR_MESSAGE);
+            } else {
+                if (!pass.equals(password)) {
+                    JOptionPane.showMessageDialog(this,"Sai thông tin mật khẩu","Loi",JOptionPane.ERROR_MESSAGE);
+                } else{
+                    if(trangthai == true){
+                        JOptionPane.showMessageDialog(this,"Tài khoản của bạn không bị khóa","Thong bao",JOptionPane.INFORMATION_MESSAGE);
+                    }
+                    else{
+                        acc347.setTrangThai(true);
+                        try {
+                            accountservices347.UpdateTrangThai347(acc347);
+                        } catch (SQLException ex) {
+                            Logger.getLogger(MoKhoaTK347.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        JOptionPane.showMessageDialog(this,"Mo khoa thanh cong","Chao mung",JOptionPane.INFORMATION_MESSAGE);
+                    }
+                    
+                } 
+                login331 frame = new login331();
+                frame.setVisible(true);
+                this.setVisible(false);
+            }
+        }    
     }//GEN-LAST:event_moKhoaBtnActionPerformed
 
     private void quayLaiBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quayLaiBtnActionPerformed

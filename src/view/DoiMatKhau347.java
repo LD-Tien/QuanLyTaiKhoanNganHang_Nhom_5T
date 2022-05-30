@@ -4,7 +4,12 @@
  */
 package view;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import model.Account;
+import service.AccountServices;
 import view.menu331;
 
 
@@ -13,9 +18,20 @@ import view.menu331;
  * @author LENOVO
  */
 public class DoiMatKhau347 extends javax.swing.JFrame {
+    private AccountServices accountservices347;
+    private Account acc347;
+    private String maThe347;
     /**
      * Creates new form DoiMatKhau
      */
+    public DoiMatKhau347(String maThe) throws SQLException {
+        this.maThe347 = maThe;
+        accountservices347 = new AccountServices();
+        acc347 = accountservices347.getAccountByMaThe309(maThe);
+        initComponents();
+        setLocationRelativeTo(null);
+    }
+    
     public DoiMatKhau347() {
         initComponents();
         setLocationRelativeTo(null);
@@ -256,29 +272,37 @@ public class DoiMatKhau347 extends javax.swing.JFrame {
 
     private void doimkBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doimkBtnActionPerformed
         // TODO add your handling code here:
-        String loi = "";
-        String password = new String (txtmkCu.getPassword());
-        String newPassword = new String (txtmkMoi.getPassword());
-        String confirmPassword = new String (txtConfirm.getPassword());
-        if(password.length() == 0){
-            loi += "\n Vui lòng nhập mật khẩu cũ";
+        String password = new String(txtmkCu.getPassword());
+        String newPassword = new String(txtmkMoi.getPassword());
+        String confirmPassword = new String(txtConfirm.getPassword());
+        String pass = acc347.getMaKhau();
+        if (password.length() == 0) {
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập mật khẩu cũ", "Loi", JOptionPane.ERROR_MESSAGE);
+        } else if (!pass.equals(password)) {
+            JOptionPane.showMessageDialog(this, "Mật khẩu cũ không chính xác", "Loi", JOptionPane.ERROR_MESSAGE);
         } else {
-            if(newPassword.length() == 0 && confirmPassword.length() == 0){
-                loi += "\n Mật khẩu Hoặc xác nhận mật khẩu không được để trống!!";
+            if (newPassword.length() == 0 && confirmPassword.length() == 0) {
+                JOptionPane.showMessageDialog(this, "Mật khẩu Hoặc xác nhận mật khẩu không được để trống!!", "Loi", JOptionPane.ERROR_MESSAGE);
             } else {
-                if(!newPassword.equals(confirmPassword)){
-                    loi += "\n Xác nhận mật khẩu không chính xác";
-                } else if (password.equals(newPassword)) {
-                    loi += "\n Bạn phải dùng mật khẩu khác";
+                if (password.equals(newPassword)) {
+                    JOptionPane.showMessageDialog(this, "Bạn phải dùng mật khẩu khác", "Loi", JOptionPane.ERROR_MESSAGE);
+                } else if (!newPassword.equals(confirmPassword)) {
+                    JOptionPane.showMessageDialog(this, "Xác nhận mật khẩu không chính xác", "Loi", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    acc347.setMaKhau(newPassword);
+                    try {
+                        accountservices347.UpdateMatKhau347(acc347);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(DoiMatKhau347.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    JOptionPane.showMessageDialog(null, "\n Đổi mật khẩu thành công");
                 }
+                menu331 frame = new menu331();
+                frame.setVisible(true);
+                this.setVisible(false);
             }
+            
         }
-        if (loi.length() != 0) {
-            JOptionPane.showMessageDialog(null, loi);
-        } else {
-            JOptionPane.showMessageDialog(null, "\n Đổi mật khẩu thành công");
-        }    
-        
     }//GEN-LAST:event_doimkBtnActionPerformed
 
     private void quayLaiBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quayLaiBtnActionPerformed
@@ -332,7 +356,11 @@ public class DoiMatKhau347 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DoiMatKhau347().setVisible(true);
+                try {
+                    new DoiMatKhau347("100000000013").setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(DoiMatKhau347.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }

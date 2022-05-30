@@ -102,5 +102,49 @@ public class AccountDao {
         return pstmt.executeUpdate()>0;
         }
 
-    }   
+    }  
+    
+    public Account getAccountByUserName347(String tenDangNhap) throws SQLException{
+        Connection connection347 = SQLServerConnection.getSQLServerConnection();
+        Statement st347 = connection347.createStatement();
+        ResultSet rs347 = null;
+        String sql = "Select * From Account where Tendangnhap = N'" + tenDangNhap + "'";
+        rs347 = st347.executeQuery(sql);
+
+        if (rs347.next()) {
+            Account acc347 = new Account();
+            acc347.setMaThe(rs347.getString("MaThe"));
+            acc347.setMaKhau(rs347.getString("Matkhau"));
+            acc347.setTenDangNhap(rs347.getString("Tendangnhap"));
+            acc347.setSoDu(rs347.getString("SoDu"));
+            acc347.setTrangThai(rs347.getBoolean("trangthai"));
+            acc347.setHoTen(rs347.getString("HoTen"));
+            acc347.setCmnd(rs347.getString("CMND"));
+            acc347.setSdt(rs347.getString("SDT"));
+            acc347.setEmail(rs347.getString("Email"));
+            acc347.setDiaChi(rs347.getString("DiaChi"));
+            acc347.setGioiTinh(rs347.getString("gioitinh"));
+            acc347.setNgaySinh(rs347.getString("ngaysinh"));
+            return acc347;
+        }
+        return null;
+    }
+
+    public void UpdateMatKhau347(Account acc347) throws SQLException {
+        Connection connection347 = SQLServerConnection.getSQLServerConnection();
+        String sql = "Update Account Set Matkhau = ? Where MaThe = ?";
+        PreparedStatement ps347 = connection347.prepareStatement(sql);
+        ps347.setString(1, acc347.getMaKhau());
+        ps347.setString(2, acc347.getMaThe());
+        ps347.executeUpdate();
+    }
+    
+    public void UpdateTrangThai347(Account acc347) throws SQLException {
+        Connection connection347 = SQLServerConnection.getSQLServerConnection();
+        String sql = "Update Account Set trangthai = ? Where MaThe = ?";
+        PreparedStatement ps347 = connection347.prepareStatement(sql);
+        ps347.setBoolean(1, acc347.isTrangThai());
+        ps347.setString(2, acc347.getMaThe());
+        ps347.executeUpdate();
+    }
 }
