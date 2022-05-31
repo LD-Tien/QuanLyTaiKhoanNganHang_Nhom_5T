@@ -296,10 +296,11 @@ public class DoiMatKhau347 extends javax.swing.JFrame {
                         Logger.getLogger(DoiMatKhau347.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     JOptionPane.showMessageDialog(null, "\n Đổi mật khẩu thành công");
+                    menu331 frame = new menu331();
+                    frame.setVisible(true);
+                    this.setVisible(false);
                 }
-                menu331 frame = new menu331();
-                frame.setVisible(true);
-                this.setVisible(false);
+                
             }
             
         }
