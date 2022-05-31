@@ -16,6 +16,7 @@ public class ChuyenTien331 extends javax.swing.JFrame {
     /**
      * Creates new form ct
      */
+    login331 lg = new login331();
     public ChuyenTien331() {
         initComponents();
         setLocationRelativeTo(null);
@@ -161,14 +162,14 @@ public class ChuyenTien331 extends javax.swing.JFrame {
 
     private void btCNBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCNBActionPerformed
         // TODO add your handling code here:
-        ChuyenNoiBo311 cnb = new ChuyenNoiBo311();
+        ChuyenNoiBo311 cnb = new ChuyenNoiBo311(lg.MaThe);
         cnb.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btCNBActionPerformed
 
     private void btCLNHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCLNHActionPerformed
         // TODO add your handling code here:
-        ChuyenLienNH311 clnh = new ChuyenLienNH311();
+        ChuyenLienNH311 clnh = new ChuyenLienNH311(lg.MaThe);
         clnh.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btCLNHActionPerformed

@@ -894,43 +894,43 @@ Account acc ;
                         acc.setGioiTinh(radioKhac336.getText());
               acc.setNgaySinh(cbBngay336.getSelectedItem()+"/"+cbBthang336.getSelectedItem()+"/"+comboboxNamSinh.getSelectedItem());
               
-       
-//              acc.setAnh(bos.toByteArray());
-           
-             AccountDao accdao = new AccountDao();
-            accdao.DangKi336(acc);
+            String sql1 ="Select * From Account where Tendangnhap = N'" + txtTenDN336.getText() + "'";
             
-            JOptionPane.showMessageDialog(this, "tài liêu đã đc lưu");
-            
-            
-            String sql ="SELECT * FROM Account where Email = ? ";
-        try(
-            Connection con =SQLServerConnection .getSQLServerConnection();
-            PreparedStatement pstmt= con.prepareStatement(sql);
-             ){
-            pstmt.setString(1, txtEmail336.getText());
-            ResultSet rs = pstmt.executeQuery();
-            if(rs.next()){
-                TxtshowTenDN.setText(rs.getString("Tendangnhap"));
-                txtshowCMND.setText(rs.getString("CMND"));
-                txtshowDiaChi.setText(rs.getString("DiaChi"));
-                txtshowEmail.setText(rs.getString("Email"));
-                txtshowHoTen.setText(rs.getString("HoTen"));
-                txtshowMaPin.setText(rs.getString("Matkhau"));
-                txtshowSDT.setText(rs.getString("SDT"));
-                txtshowSoDu.setText(rs.getString("SoDu"));
-                txtshowSoTK.setText(rs.getString("MaThe"));
-                txtshowgioitinh.setText(rs.getString("gioitinh"));
-                txtshowngaysinh336.setText(rs.getString("ngaysinh"));
-                 
-            }
-                this.setVisible(false);
-                dangkidialog.setVisible(true);
-                
-        } catch (SQLException ex) {
-        }
+            Connection con1 =SQLServerConnection .getSQLServerConnection();
+            PreparedStatement pstmt1= con1.prepareStatement(sql1);
+            ResultSet rs1 = pstmt1.executeQuery();
+             if(!rs1.next()){
+                  AccountDao accdao = new AccountDao();
+                  accdao.DangKi336(acc);
+                  JOptionPane.showMessageDialog(this, " Đăng kí Thành công ");
+                   String sql ="SELECT * FROM Account where Email = ? ";
+                        try(
+                            Connection con =SQLServerConnection .getSQLServerConnection();
+                            PreparedStatement pstmt= con.prepareStatement(sql);
+                             ){
+                            pstmt.setString(1, txtEmail336.getText());
+                            ResultSet rs = pstmt.executeQuery();
+                            if(rs.next()){
+                                TxtshowTenDN.setText(rs.getString("Tendangnhap"));
+                                txtshowCMND.setText(rs.getString("CMND"));
+                                txtshowDiaChi.setText(rs.getString("DiaChi"));
+                                txtshowEmail.setText(rs.getString("Email"));
+                                txtshowHoTen.setText(rs.getString("HoTen"));
+                                txtshowMaPin.setText(rs.getString("Matkhau"));
+                                txtshowSDT.setText(rs.getString("SDT"));
+                                txtshowSoDu.setText(rs.getString("SoDu"));
+                                txtshowSoTK.setText(rs.getString("MaThe"));
+                                txtshowgioitinh.setText(rs.getString("gioitinh"));
+                                txtshowngaysinh336.setText(rs.getString("ngaysinh"));
 
-            
+                            }
+                                this.setVisible(false);
+                                dangkidialog.setVisible(true);
+
+                        } catch (SQLException ex) {
+                        }
+                   }else JOptionPane.showMessageDialog(this, "Tên tài khoản đã có\n Mời Bạn nhập tên mới");
+                 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Errol " +e.getMessage());
             e.printStackTrace();

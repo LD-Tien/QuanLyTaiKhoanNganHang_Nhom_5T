@@ -5,6 +5,7 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Account;
+import model.chuyenKhoan;
 
 public class AccountDao {
 
@@ -146,5 +147,61 @@ public class AccountDao {
         ps347.setBoolean(1, acc347.isTrangThai());
         ps347.setString(2, acc347.getMaThe());
         ps347.executeUpdate();
+    }
+      public void UpdateTrangThai331(String mathe) throws SQLException {
+        Connection connection331 = SQLServerConnection.getSQLServerConnection();
+        String sql = "Update Account Set trangthai = 0 Where MaThe = ?";
+        PreparedStatement ps347 = connection331.prepareStatement(sql);
+        ps347.setString(1, mathe);
+        ps347.executeUpdate();
+    }
+    public double getSoDu311(String id) throws SQLException, Exception {
+        double soDu = 0;
+        Connection con = SQLServerConnection.getSQLServerConnection();
+        String sql = "select SoDu from Account where MaThe =" + id;
+        Statement st = con.createStatement();
+        ResultSet rs = null;
+        rs = st.executeQuery(sql);
+        rs.next();
+        soDu = rs.getDouble("SoDu");
+        System.out.println(soDu);
+        return soDu;
+    }
+
+    public void setSoDu311(Double tien, String id) throws SQLException, Exception {
+        Connection con = SQLServerConnection.getSQLServerConnection();
+        String sql = "Update Account Set SoDu = ? Where MaThe =" + id;
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setDouble(1, tien);
+        ps.executeUpdate();
+    }
+    
+    public String getmatheDN(String tenDN) throws SQLException, Exception {
+        String MaThe = null;
+        Connection con = SQLServerConnection.getSQLServerConnection();
+        String sql = "Select MaThe From Account where Tendangnhap = N'" + tenDN + "'";
+        Statement st = con.createStatement();
+        ResultSet rs = null;
+        rs = st.executeQuery(sql);
+        rs.next();
+        MaThe= rs.getString("MaThe");
+        System.out.println(MaThe);
+        return MaThe;
+    }
+    public void insertChuyenKhoan(chuyenKhoan ck) {
+        Connection con = SQLServerConnection.getSQLServerConnection();
+        String sql = "insert into ChuyenKhoan(SoTKChuyen,SoTKNhan,NoiDung,SoTien,TenNganHangDen) values (?,?,?,?,?)";
+        try {
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setString(1, ck.getSoTaiKhoanChuyen());
+            ps.setString(2, ck.getSoTaiKhoanNhan());
+            ps.setString(3, ck.getNoiDung());
+            ps.setDouble(4, ck.getSotien());
+            ps.setString(5, ck.getTenNganHangden());
+            int rs = ps.executeUpdate();
+            System.out.println(rs);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

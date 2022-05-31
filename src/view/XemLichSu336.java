@@ -20,22 +20,23 @@ import javax.swing.table.DefaultTableModel;
  * @author LÊ VĂN THẮNG
  */
 public class XemLichSu336 extends javax.swing.JFrame {
-public static  String MaThe="1234";
+
 
     /**
      * Creates new form XemLichSu336
      */
+    login331 lg = new login331();
     public XemLichSu336() throws SQLException {
         initComponents();
         setLocationRelativeTo(null);
-        Showdatabase(MaThe); 
+        Showdatabase(lg.MaThe); 
    }
    private void ShowAnh() throws SQLException{
           Connection con =SQLServerConnection.getSQLServerConnection();
           String sql ="select * from Account where MaThe = ?";
            PreparedStatement pstmt= con.prepareStatement(sql);
            
-            pstmt.setString(1, MaThe);
+            pstmt.setString(1, lg.MaThe);
             ResultSet rs =   pstmt.executeQuery();
             while(rs.next()){
                 

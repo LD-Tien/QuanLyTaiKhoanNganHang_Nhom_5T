@@ -4,12 +4,28 @@
  */
 package view;
 
+import dao.AccountDao;
+import javax.swing.JOptionPane;
+import model.chuyenKhoan;
+
 /**
  *
  * @author LÊ VĂN THẮNG
  */
 public class ChuyenLienNH311 extends javax.swing.JFrame {
 
+    AccountDao ad;
+    chuyenKhoan ck;
+    String tStkChuyen;
+
+    /**
+     * Creates new form ChuyenLienNH311
+     */
+    public ChuyenLienNH311(String maThe) {
+        this.tStkChuyen = maThe;
+        initComponents();
+        setLocationRelativeTo(null);
+    }
     /**
      * Creates new form ChuyenLienNH311
      */
@@ -36,7 +52,7 @@ public class ChuyenLienNH311 extends javax.swing.JFrame {
         tbSoTienChuyen = new javax.swing.JTextField();
         btQuayLai = new javax.swing.JButton();
         btTiepTuc = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox();
+        cbTenNganHang = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -86,9 +102,14 @@ public class ChuyenLienNH311 extends javax.swing.JFrame {
 
         btTiepTuc.setBackground(new java.awt.Color(153, 255, 153));
         btTiepTuc.setText("Tiếp tục");
+        btTiepTuc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btTiepTucActionPerformed(evt);
+            }
+        });
 
-        jComboBox1.setBackground(new java.awt.Color(102, 204, 255));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TP Bank", "SacomBank", "AriBank", "DongA Bank", "BIDV", " " }));
+        cbTenNganHang.setBackground(new java.awt.Color(102, 204, 255));
+        cbTenNganHang.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TP Bank", "SacomBank", "AriBank", "DongA Bank", "BIDV", " " }));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -115,7 +136,7 @@ public class ChuyenLienNH311 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(tbTaiKhoanThuHuong, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbTenNganHang, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tbNoiDung, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tbSoTienChuyen, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap())
@@ -137,7 +158,7 @@ public class ChuyenLienNH311 extends javax.swing.JFrame {
                     .addComponent(tbNoiDung, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cbTenNganHang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -211,6 +232,61 @@ public class ChuyenLienNH311 extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btQuayLaiActionPerformed
 
+    private void btTiepTucActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTiepTucActionPerformed
+       //Chuyen liên ngân hàng
+        ck =new chuyenKhoan();
+        double sdC;
+        String tenNH;
+        System.out.println("so tai khoan nguoi chuyen" + tStkChuyen);
+        String tStkNhan = tbTaiKhoanThuHuong.getText();
+        String ttienChuyen = tbSoTienChuyen.getText();
+        Double tc = null;
+        String loi = "";
+        if (ttienChuyen.length() == 0) {
+            loi += "\n Nhập số tiền cần chuyển";
+        }
+        if (loi.length() != 0) {
+            JOptionPane.showMessageDialog(null, loi);
+        } else {
+            AccountDao ad = new AccountDao();
+
+            try {
+                System.out.println("0");
+                System.out.println("so du nguoi chuyen");
+                tc = ad.getSoDu311(tStkChuyen);
+                System.out.println("so du nguoi nhan");
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Nhập sai tài khoản ngươi nhận");
+            }
+            if (Double.parseDouble(ttienChuyen) > tc) {
+                JOptionPane.showMessageDialog(null, "Số dư không đủ");
+            } else {
+                sdC = tc - Double.parseDouble(ttienChuyen);
+                try {
+                    System.out.println("taii khoan nguoi chuyen");
+                    System.out.println(tStkChuyen);
+                    System.out.println("tien nguoi gui tru tien chuyen");
+                    System.out.println(sdC);
+                    ad.setSoDu311(sdC, tStkChuyen);
+                    tenNH=(String) cbTenNganHang.getSelectedItem();
+                    ck.setSoTaiKhoanChuyen(tStkChuyen);
+                    ck.setSoTaiKhoanNhan(tStkNhan);
+                    ck.setSotien(Double.parseDouble(ttienChuyen));
+                    ck.setTenNganHangden(tenNH);
+                    ck.setNoiDung(tbNoiDung.getText());
+                    ad.insertChuyenKhoan(ck);
+                    JOptionPane.showMessageDialog(null, "Chuyển liên ngân hàng thành công");
+                    menu331 m =new menu331();
+                    m .setVisible(true);
+                    this.setVisible(false);
+                } catch (Exception ex) {
+                    java.util.logging.Logger.getLogger(ChuyenNoiBo311.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                }
+
+            }
+        }
+    }//GEN-LAST:event_btTiepTucActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -252,7 +328,7 @@ public class ChuyenLienNH311 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btQuayLai;
     private javax.swing.JButton btTiepTuc;
-    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox cbTenNganHang;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

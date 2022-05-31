@@ -24,6 +24,7 @@ public class login331 extends javax.swing.JFrame {
     /**
      * Creates new form login331
      */
+    public static String MaThe;
     public login331() {
         initComponents();
         setLocationRelativeTo(null);
@@ -68,7 +69,7 @@ public class login331 extends javax.swing.JFrame {
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 0, 204));
-        jLabel2.setText("SỐ TÀI KHOẢN");
+        jLabel2.setText("Tên Tài Khoản");
 
         jButton1.setBackground(new java.awt.Color(255, 255, 0));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -90,7 +91,6 @@ public class login331 extends javax.swing.JFrame {
 
         jCheckBox1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jCheckBox1.setForeground(new java.awt.Color(255, 51, 51));
-        jCheckBox1.setSelected(true);
         jCheckBox1.setText("Hiển thị mật khẩu");
         jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -192,16 +192,21 @@ public class login331 extends javax.swing.JFrame {
         if (userName.length() == 0) {
             JOptionPane.showMessageDialog(this, "Vui lòng nhập tên tài khoản", "Loi", JOptionPane.ERROR_MESSAGE);
         } else if (this.acc331 == null) {
-            JOptionPane.showMessageDialog(this, "Sai thông tin tài khoản", "Loi", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Bạn sai tên đăng nhập hoặc mật khẩu \n vui lòng nhập lại", "Loi", JOptionPane.ERROR_MESSAGE);
         } else {
             String pass = acc331.getMaKhau();
             if (password.length() == 0) {
                 JOptionPane.showMessageDialog(this, "Mật khẩu không được để trống!!", "Loi", JOptionPane.ERROR_MESSAGE);
             } else {
                 if (!pass.equals(password)) {
-                    JOptionPane.showMessageDialog(this, "Sai thông tin mật khẩu", "Loi", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Bạn sai tên đăng nhập hoặc mật khẩu \n vui lòng nhập lại", "Loi", JOptionPane.ERROR_MESSAGE);
                 } else {
-                    JOptionPane.showMessageDialog(this, "Dang nhap thanh ", "Chao mung", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "Đăng Nhập Thành Công ", "Chao mung", JOptionPane.INFORMATION_MESSAGE);
+                    try {
+                        MaThe=accountservices331.getmatheDN(txttk.getText());
+                    } catch (Exception ex) {
+                        Logger.getLogger(login331.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     menu331 frame = new menu331();
                     frame.setVisible(true);
                     this.setVisible(false);

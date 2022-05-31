@@ -30,4 +30,12 @@ public class AccountServices {
         AccountDao dao347 = new AccountDao();
         dao347.UpdateMatKhau347(acc347);
     }
+    public String getmatheDN(String tenDN) throws SQLException, Exception {
+        AccountDao dao347 = new AccountDao();
+        return dao347.getmatheDN(tenDN);
+    }
+    public void UpdateTrangThai331(String mathe) throws SQLException {
+        AccountDao dao331 = new AccountDao();
+        dao331.UpdateTrangThai331(mathe);
+    }
 }

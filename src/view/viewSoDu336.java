@@ -18,14 +18,18 @@ import java.util.logging.Logger;
  * @author LÊ VĂN THẮNG
  */
 public class viewSoDu336 extends javax.swing.JFrame {
-public static  String MaThe336="100000000014";
+public static  String MaThe336;
     /**
      * Creates new form viewSoDu
      */
+     
     public viewSoDu336() throws SQLException {
         initComponents();
         setLocationRelativeTo(null);
-        Showdatabase(MaThe336);
+        login331 lg = new login331();
+        this.MaThe336= lg.MaThe;
+        Showdatabase(this.MaThe336);
+     
     }
 private void Showdatabase(String Mathe336) throws SQLException{
         String sql = "SELECT * FROM Account where MaThe = ? ";

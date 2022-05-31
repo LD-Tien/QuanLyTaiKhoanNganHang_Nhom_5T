@@ -4,12 +4,26 @@
  */
 package view;
 
+import dao.AccountDao;
+import javax.swing.JOptionPane;
+import model.chuyenKhoan;
+
 /**
  *
  * @author LÊ VĂN THẮNG
  */
 public class ChuyenNoiBo311 extends javax.swing.JFrame {
-
+    AccountDao ad;
+    String tStkChuyen;
+    chuyenKhoan ck;
+    /**
+     * Creates new form ChuyenNoiBo311
+     */
+    public ChuyenNoiBo311(String maThe) {
+        this.tStkChuyen = maThe;
+        initComponents();
+        setLocationRelativeTo(null);
+    }
     /**
      * Creates new form ChuyenNoiBo311
      */
@@ -110,6 +124,11 @@ public class ChuyenNoiBo311 extends javax.swing.JFrame {
 
         btTiepTuc.setBackground(new java.awt.Color(153, 255, 153));
         btTiepTuc.setText("Tiếp tục");
+        btTiepTuc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btTiepTucActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -195,6 +214,67 @@ public class ChuyenNoiBo311 extends javax.swing.JFrame {
         ct.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btQuayLaiActionPerformed
+
+    private void btTiepTucActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btTiepTucActionPerformed
+        //Chuyển nội bộ
+       ck = new chuyenKhoan();
+        double sdC,sdN;
+        System.out.println("so tai khoan nguoi chuyen"+tStkChuyen);
+        String tStkThuHuong = tbTaiKhoanThuHuong.getText();
+        String ttienChuyen = tbSoTienChuyen.getText();
+        Double tc = null, tn = null;
+        String loi = "";
+        if (ttienChuyen.length() == 0) {
+            loi += "\n Nhập số tiền cần chuyển";
+        } else if (tStkThuHuong.length() == 0) {
+            loi += "\n Nhập số tài khoản người thụ hưởng";
+        }
+        if (loi.length() != 0) {
+            JOptionPane.showMessageDialog(null, loi);
+        } else {
+            ad = new AccountDao();
+
+            try {
+                System.out.println("0");
+                System.out.println("so du nguoi chuyen");
+                tc = ad.getSoDu311(tStkChuyen);
+                System.out.println("so du nguoi nhan");
+                tn = ad.getSoDu311(tStkThuHuong);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "Nhập sai tài khoản ngươi nhận");
+            }
+            if (Double.parseDouble(ttienChuyen) > tc) {
+                JOptionPane.showMessageDialog(null, "Số dư không đủ");
+            } else {
+                sdC = tc-Double.parseDouble(ttienChuyen);
+                sdN = tn+Double.parseDouble(ttienChuyen);
+                try {
+                    System.out.println("taii khoan nguoi chuyen");
+                    System.out.println(tStkChuyen);
+                    System.out.println("tien nguoi gui tru tien chuyen");
+                    System.out.println(sdC);
+                    System.out.println("tien nguoi nhan nha duoc");
+                    System.out.println(sdN);
+                    ad.setSoDu311(sdC, tStkChuyen);
+                    ad.setSoDu311(sdN, tStkThuHuong);
+                    ck.setSoTaiKhoanChuyen(tStkChuyen);
+                    ck.setSoTaiKhoanNhan(tStkThuHuong);
+                    ck.setSotien(Double.parseDouble(ttienChuyen));
+                    ck.setNoiDung(tbNoiDung.getText());
+                    ck.setTenNganHangden("Vietinbank");
+                    ad.insertChuyenKhoan(ck);
+                    JOptionPane.showMessageDialog(null, "Chuyển nội bộ thành công");
+                    menu331 m =new menu331();
+                    m .setVisible(true);
+                    this.setVisible(false);
+                } catch (Exception ex) {
+                    java.util.logging.Logger.getLogger(ChuyenNoiBo311.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                }
+
+            }
+        }
+
+    }//GEN-LAST:event_btTiepTucActionPerformed
 
     /**
      * @param args the command line arguments

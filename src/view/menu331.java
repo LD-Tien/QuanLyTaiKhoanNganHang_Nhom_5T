@@ -8,21 +8,26 @@ package view;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import service.AccountServices;
 
 /**
  *
  * @author ADMIN
  */
 public class menu331 extends javax.swing.JFrame {
-
+    private AccountServices accountservices331;
     /**
      * Creates new form menu331
      */
-    
+    login331 lg = new login331();
+    private String MaThe;
     public menu331() {
         initComponents();
         setLocationRelativeTo(null);
+       
     }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -228,6 +233,8 @@ public class menu331 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        
+       
         login331 lg =new login331();
         lg.setVisible(true);
         this.setVisible(false);
@@ -252,9 +259,15 @@ public class menu331 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        login331 lg =new  login331();
-        lg.setVisible(true);
-        this.setVisible(false);
+        accountservices331 = new AccountServices();
+        try {
+            accountservices331.UpdateTrangThai331(lg.MaThe);
+            login331 lg =new login331();
+            lg.setVisible(true);
+            this.setVisible(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(menu331.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -271,19 +284,24 @@ public class menu331 extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         XemVaCapNhatTK309 xcn;
         try {
-            xcn = new XemVaCapNhatTK309("100000000014");
+            xcn = new XemVaCapNhatTK309(lg.MaThe);
             xcn.setVisible(true);
             this.setVisible(false);
         } catch (SQLException ex) {
             Logger.getLogger(menu331.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        DoiMatKhau347 dmk = new DoiMatKhau347();
-        dmk.setVisible(true);
-        this.setVisible(false);
+        DoiMatKhau347 dmk;
+        try {
+            dmk = new DoiMatKhau347(lg.MaThe);
+            dmk.setVisible(true);
+            this.setVisible(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(menu331.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }//GEN-LAST:event_jButton6ActionPerformed
 
     /**

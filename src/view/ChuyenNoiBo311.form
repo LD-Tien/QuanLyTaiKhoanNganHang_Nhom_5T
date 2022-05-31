@@ -222,6 +222,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Ti&#x1ebf;p t&#x1ee5;c"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btTiepTucActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
