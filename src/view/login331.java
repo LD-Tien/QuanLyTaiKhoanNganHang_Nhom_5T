@@ -201,15 +201,21 @@ public class login331 extends javax.swing.JFrame {
                 if (!pass.equals(password)) {
                     JOptionPane.showMessageDialog(this, "Bạn sai tên đăng nhập hoặc mật khẩu \n vui lòng nhập lại", "Loi", JOptionPane.ERROR_MESSAGE);
                 } else {
-                    JOptionPane.showMessageDialog(this, "Đăng Nhập Thành Công ", "Chao mung", JOptionPane.INFORMATION_MESSAGE);
-                    try {
-                        MaThe=accountservices331.getmatheDN(txttk.getText());
-                    } catch (Exception ex) {
-                        Logger.getLogger(login331.class.getName()).log(Level.SEVERE, null, ex);
+                    if(acc331.isTrangThai()!= true)
+                    {
+                        JOptionPane.showMessageDialog(this, "Tài Khoản Của Bạn Đã Bị Khóa", "Loi", JOptionPane.ERROR_MESSAGE);
                     }
-                    menu331 frame = new menu331();
-                    frame.setVisible(true);
-                    this.setVisible(false);
+                     else{
+                        JOptionPane.showMessageDialog(this, "Đăng Nhập Thành Công ", "Chao mung", JOptionPane.INFORMATION_MESSAGE);
+                        try {
+                            MaThe=accountservices331.getmatheDN(txttk.getText());
+                        } catch (Exception ex) {
+                            Logger.getLogger(login331.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        menu331 frame = new menu331();
+                        frame.setVisible(true);
+                        this.setVisible(false);
+                }
                 }
 
             }

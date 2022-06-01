@@ -873,6 +873,7 @@ Account acc ;
            JOptionPane.showMessageDialog(this, sb);
            return;
        }
+       
         
        try {
             
@@ -948,7 +949,7 @@ Account acc ;
     private void btnThoatdialogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThoatdialogActionPerformed
        
         dangkidialog.setVisible(false);
-        new menu331().setVisible(true);
+        new login331().setVisible(true);
     }//GEN-LAST:event_btnThoatdialogActionPerformed
 
     private void dangkidialogAncestorResized(java.awt.event.HierarchyEvent evt) {//GEN-FIRST:event_dangkidialogAncestorResized

@@ -235,7 +235,7 @@ public class menu331 extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         
        
-        login331 lg =new login331();
+        MoDau309 lg =new MoDau309();
         lg.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed

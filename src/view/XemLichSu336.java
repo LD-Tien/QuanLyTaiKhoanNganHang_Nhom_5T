@@ -49,11 +49,12 @@ public class XemLichSu336 extends javax.swing.JFrame {
             defaultTableModel.setColumnIdentifiers(new String[]{"Mã Giao Dịch","Tk Chuyển","ngày","Nội Dung","Số Tiền","Tk nhận","Ngân Hàng Nhận"});
             tbxemlichsu336.setModel(defaultTableModel);
             Connection con =SQLServerConnection.getSQLServerConnection();
-            String sql ="select MaChuyen,SoTKChuyen,NgayChuyen as ck, NoiDung,SoTien,SoTKNhan,TenNganHangDen from ChuyenKhoan where SoTKChuyen=? order by ck desc";
+            String sql ="select MaChuyen,SoTKChuyen,NgayChuyen as ck, NoiDung,SoTien,SoTKNhan,TenNganHangDen from ChuyenKhoan where SoTKChuyen=? or SoTKNhan = ? and TenNganHangDen like'Vietinbank' order by ck desc";
 
             PreparedStatement pstmt= con.prepareStatement(sql);
            
             pstmt.setString(1, SoTK);
+             pstmt.setString(2, SoTK);
             ResultSet rs =   pstmt.executeQuery();
             
             while(rs.next()){
