@@ -125,26 +125,26 @@ private void Showdatabase(String Mathe336) throws SQLException{
         jPanel5.add(btnShowtK);
         btnShowtK.setBounds(230, 240, 175, 34);
 
-        lbhoten336.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        lbhoten336.setForeground(new java.awt.Color(255, 255, 0));
+        lbhoten336.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lbhoten336.setForeground(new java.awt.Color(255, 255, 255));
         lbhoten336.setText("Tên Tài Khoản");
         lbhoten336.setName("lbtentk"); // NOI18N
         jPanel5.add(lbhoten336);
-        lbhoten336.setBounds(60, 100, 300, 40);
+        lbhoten336.setBounds(20, 110, 360, 40);
 
-        lbsotk336.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        lbsotk336.setForeground(new java.awt.Color(255, 255, 0));
+        lbsotk336.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lbsotk336.setForeground(new java.awt.Color(255, 255, 255));
         lbsotk336.setText("Số Tài Khoản");
         lbsotk336.setName("lbMathe"); // NOI18N
         jPanel5.add(lbsotk336);
-        lbsotk336.setBounds(60, 60, 300, 40);
+        lbsotk336.setBounds(20, 70, 360, 40);
 
-        lbsodu336.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        lbsodu336.setForeground(new java.awt.Color(255, 255, 0));
+        lbsodu336.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lbsodu336.setForeground(new java.awt.Color(255, 255, 255));
         lbsodu336.setText("Số dư khả dụng");
         lbsodu336.setName("lbsodu"); // NOI18N
         jPanel5.add(lbsodu336);
-        lbsodu336.setBounds(60, 150, 310, 30);
+        lbsodu336.setBounds(20, 160, 370, 30);
 
         jLabel4.setForeground(new java.awt.Color(255, 255, 0));
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/lacovn.png"))); // NOI18N
